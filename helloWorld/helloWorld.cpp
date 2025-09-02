@@ -21,9 +21,8 @@
  빌드 : 실행파일 생성하기
  리빌드 : 전체 재빌드 ctrl+b+r
  pdb 모든 코드 자료 포함되어 있음. 보안 필수 
- 브랜치 분기
- 추가추가
- 추가추가추가
+ 브랜치 분기 -git을 사용하여 분기점 지정 후 사용 가능
+ 
 */
 #define _CRT_SECURE_NO_WARNINGS
 #include <iostream> //입출력 관련
