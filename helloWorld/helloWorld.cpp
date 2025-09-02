@@ -37,30 +37,37 @@
 
 int main() //엔트리 포인트 : 코드가 시작되는 곳
 {
-   // std :: cout << "Hello World!\n"; //c++ 출력 방법
-   printf("Hello World!\n"); //c 출력방법 언리얼에서는 해당 문장을 사용함.
-   printf("조세운\n");  
-   printf("92년생입니다.\n♠┏┐\n");
-   /* 이스케이프 시퀀스
-   // \n : 줄 바꿈(개행문자) , \t : tab 간격 조절
-      \" : " 한 개 텍스트 출력
-      \\ : \ 텍스트 출력
-      \r : 캐리지 리턴(리눅스에서 중요) 옛날 타자기에서 줄 바꿈 후 종이 재정립할 때 하는 작업의 토대로하는 개념 
-   */
-   int number = 0;
+   //// std :: cout << "Hello World!\n"; //c++ 출력 방법
+   //printf("Hello World!\n"); //c 출력방법 언리얼에서는 해당 문장을 사용함.
+   //printf("조세운\n");  
+   //printf("92년생입니다.\n♠┏┐\n");
+   ///* 이스케이프 시퀀스
+   //// \n : 줄 바꿈(개행문자) , \t : tab 간격 조절
+   //   \" : " 한 개 텍스트 출력
+   //   \\ : \ 텍스트 출력
+   //   \r : 캐리지 리턴(리눅스에서 중요) 옛날 타자기에서 줄 바꿈 후 종이 재정립할 때 하는 작업의 토대로하는 개념 
+   //*/
+   //int number = 0;
 
-   scanf("%d", &number);//c 문법 메모리 간섭 있을 수 있음
-   
-   printf("입력한 숫자는 : %d \n", number);
+   //scanf("%d", &number);//c 문법 메모리 간섭 있을 수 있음
+   //
+   //printf("입력한 숫자는 : %d \n", number);
 
-   std::cin >> number; //입력 받기 C++
-   printf("입력한 숫자는 : %d \n", number);
+   //std::cin >> number; //입력 받기 C++
+   //printf("입력한 숫자는 : %d \n", number);
 
-   // 프로그램을 실행 했을 때 나이를 물어보고 입력받은 숫자를 그대로 출력
-   printf("나이을 입력해주세요. \n");
-   std::cin >> number;
+   //// 프로그램을 실행 했을 때 나이를 물어보고 입력받은 숫자를 그대로 출력
+   //printf("나이을 입력해주세요. \n");
+   //std::cin >> number;
 
-   printf("당신의 나이는 %d ", number);
+   //printf("당신의 나이는 %d ", number);
+
+    char star = '*';
+
+    for (int i = 0; i < 5; i+2) {
+        printf(star);
+    }
+
     return 0;
 }
 
