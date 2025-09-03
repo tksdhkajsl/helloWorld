@@ -262,6 +262,35 @@ int main() //엔트리 포인트 : 코드가 시작되는 곳
    // printf("백의 자리 수는 %d , 십의 자리 수는 %d, 일의 자리 수는 %d 이고, \n", hundred, ten, one);
    // printf("각 수의 합은 %d 입니다.", hundred + ten + one);
     //실습 Day_2
+   // char star = '*';
+
+   //     printf("%d 원의 500원의 개수: %d 개, 100원의 개수: %d 개, 50원의 개수: %d 개, 10원의 개수: %d 개 입니다.\n", a, money_500, money_100, money_50, money_10);
+   //    
+   ///*자리수 분리하기(입력은 항상 세자리라고 가정)
+   //수를 입력받고 100의 자리, 10의 자리, 1의 자리를 각각 출력하기
+   //각 자리의 수를 합해서 출력하기*/
+   // printf("세자리 수를 입력하세요. \n");
+   // std::cin >> a;
+   // int hundred = a / 100;
+   // int ten = a % 100 / 10;
+   // int one = a % 100 % 10;
+   // for (int i = 0; i < 5; i+2) {
+   //     printf(star);
+   // }
+   // printf("%d 원의 500원의 개수: %d 개, 100원의 개수: %d 개, 50원의 개수: %d 개, 10원의 개수: %d 개 입니다.\n", a, money_500, money_100, money_50, money_10);
+   //    
+   ///*자리수 분리하기(입력은 항상 세자리라고 가정)
+   //수를 입력받고 100의 자리, 10의 자리, 1의 자리를 각각 출력하기
+   //각 자리의 수를 합해서 출력하기*/
+   // printf("세자리 수를 입력하세요. \n");
+   // std::cin >> a;
+   // int hundred = a / 100;
+   // int ten = a % 100 / 10;
+   // int one = a % 100 % 10;
+
+   // printf("백의 자리 수는 %d , 십의 자리 수는 %d, 일의 자리 수는 %d 이고, \n", hundred, ten, one);
+   // printf("각 수의 합은 %d 입니다.", hundred + ten + one);
+    //실습 Day_2
     int a = 0;
     int b = 0;
     int c = 0;
@@ -323,6 +352,34 @@ int main() //엔트리 포인트 : 코드가 시작되는 곳
     }
     // 점수를 입력 받아 90 >= A , 80 >= B, 70 >= C, 60 >= D, 나머지 F
     printf("점수를 입력해주세요\n");
+    if (a > b) {
+        printf("입력하신 a = %d, b = %d 이므로 a가 더 큽니다.\n", a, b);
+    }
+    else if(a < b){
+        printf("입력하신 a = %d, b = %d 이므로 b가 더 큽니다.\n", a, b);
+    }
+    else {
+        printf("입력하신 a = %d, b = %d 이므로 두 수는 같습니다.\n", a, b);
+    }
+    //나이와 키를 입력 받아 6세 이상 120cm 이상일 때
+    //롤러코스터 탑승 가능 그외에는 불가능 출력
+    //unsigned int : 정수가 양수 고정인 정보만 사용되면 해당 문구를 추가하여 최적화
+    //const unsigned int LimitAge = 5;
+    //const float LimitHeight = 120.0f; 
+    //암시적 변환(보통 표현 범위가 큰 쪽으로 변경됨)
+    printf("나이를 입력해주세요\n");
+    std::cin >> a;
+    printf("키를 입력해주세요\n");
+    std::cin >> b;
+
+    if (a >= 6 && b >= 120) { //매직넘버의 사용은 안 좋다.
+        printf("롤러코스터 탑승 기준에 부합합니다. 탑승 가능\n");
+    }
+    else{
+        printf("롤러코스터 탑승 기준에 부합하지 않습니다. 탑승 불가능\n");
+    }
+    // 점수를 입력 받아 90 >= A , 80 >= B, 70 >= C, 60 >= D, 나머지 F
+    printf("점수를 입력해주세요\n");
     std::cin >> a;
     if (a >= 90) {
         printf("점수가 %d 이므로 A 학점입니다.\n", a);
@@ -341,6 +398,13 @@ int main() //엔트리 포인트 : 코드가 시작되는 곳
     }
 
     //세 과목 점수를 입력 받아 세 과목 모두 60점 이상이면 합격, 아니면 불합격
+    /*int Point1 = 0;
+    int Point2 = 0;
+    int Point3 = 0;
+    const int AverageLimit = 60;
+    const int FailLimit = 40;
+    float Average = (Point1 + Point2 + Point3) / 3.0f;
+    std::cin >> Point1 >> Point2 >> Point3;*/
     printf("수학 점수를 입력해주세요\n");
     std::cin >> a;
     printf("국어 점수를 입력해주세요\n");
