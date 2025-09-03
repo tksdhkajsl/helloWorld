@@ -34,7 +34,8 @@
 #include <cstdio>  // stdio.h에 네임 스페이스 추가한 래퍼
 #include <stdio.h>
 #include "header.h"
-
+#include <time.h>
+#include<random>
 
 //using namespace std;
 
@@ -248,6 +249,177 @@ int main() //엔트리 포인트 : 코드가 시작되는 곳
     printf("정사각형의 넓이는 %d 입니다.", square * square);*/
     //오버플로우 : 대략 21억을 값 32bit를 넘어갈 때 발생하는 현상으로 -값이 나오거나, 다른 값이 나온다.
     
+//비트 연산자 
+////bit : 0,1을 저장하는 단위
+///*
+//&   (And) (논리곱)두 비트가 모두 1이면 1, 아니면 0
+//    특정 비트가 세팅 되어 있는지 확인하는데. 사용(플래그 검사)
+//    int a = 10;     0b1010
+//    int b = 9;      0b1001
+//    int c = a & b;  0b1000
+//|   (Or)  (논리합)두 비트가 하나라도 1이면 1, 둘 다 0이면 0
+//    특정 비트에 플래그를 세팅하고 싶을 때 사용
+//    int a = 10;     0b1010
+//    int b = 9;      0b1001
+//    int c = a | b;  0b1011
+//^   (XOR) (베타적 비트 합) 두 비트가 서로 다르면 1, 같으면 0
+//    특정 비트를 토글하고 싶을 때 사용
+//    int a = 10;     0b1010
+//    int b = 9;      0b1001
+//    int c = a ^ b;  0b0011
+//~   (Not)   비트 값을 반전 시킨다 (0 -> 1, 1 -> 0)
+//    int a = 10; // 0b1010
+//    a = ~a;     // 0b0101
+//<<  (Left Shift) 비트들을 왼쪽으로 이동
+//    한 번 움직일 때마다 수가 두배가 된다.
+//    int a = 7;  //0b0111
+//    a = a << 1; //0b1110
+//>>  (Right Shift)비트들을 오른쪽으로 이동
+//    한 번 움직일 때마다 수가 절반이 된다.
+//     int a = 7;  //0b0111
+//     a = a << 1; //0b0011   
+//
+//*/
+//
+//int flag = 0b1010; 
+////0b0001 = 왼쪽 키가 눌러졌다.
+////0b0010 = 오른쪽 키가 눌러졌다.
+////0b0100 = 위쪽 키가 눌러졌다.
+////0b1000 = 아래쪽 키가 눌러졌다.
+//
+//if ((flag & 0b0010) != 0b0000)
+//{
+//    // 오른쪽 키가 눌려져 있다.
+//}
+//else
+//{
+//    // 오른쪽 키가 눌려져 있지 않다.
+//}
+//
+//flag = flag | 0b0001; // 결과는 flag = 0b1011
+//
+//int result = flag ^ 0b0001; //결과는 = 0b1011
+//result = result ^ 0b0001;   //결과는 = 0b1010
+//
+//int test = 0b0001;
+//test = ~test;
+////enum : 상수들에게 사람이 알아보기 좋은 이름을 붙여 놓은 것
+//enum Key
+//{
+//    Up    = 1 << 0, //0b0001
+//    Down  = 1 << 1, //0b0010
+//    Left  = 1 << 2, //0b0100
+//    Right = 1 << 3, //0b1000
+//};
+//int testFlag = Up;
+//if ((flag & Up) != 0)
+//{
+//
+//   }
+//int number = 0;
+//printf("숫자를 입력하세요. \n");
+//std::cin >> number;
+//if ((number & 1) != 0) //& 1하면 비트의 마지막 자리인 1만 남고 입력 값의 다른 비트 값은 0으로 바뀌어서 입력 값에 1이 활성화 되어 있는지 확인만 하면 된다.
+//{
+//    printf("숫자는 홀수입니다. \n");
+//}
+//else
+//{
+//    printf("숫자는 짝수입니다. \n");
+//}
+
+//반복문
+//특정 코드 블록을 조건에 따라 여러번 반복해서 실행할 수 있게 해주는 문
+/*
+    for      반복 횟수가 명확할 때 사용
+    while    반복 횟수가 명확하지 않고 조건에 따라 반복할 때 사용
+    do-while 최소 한번은  무조건 실행해야 할 때 사용(while과 거의 같음)
+*/
+    //10번 찍기
+//test 시 3번 확인 첫 실행 정상 확인, 로직 중간 정상 확인, 로직 종료 시 정상 확인
+//for (int i = 0; i < 10; i++)
+//{
+//    printf("Hello World : %d\n", i+1);
+//    }
+//
+//int Count = 1;
+//while ((Count%3) != 0) // while()의 조건이 참이면 코드 블록 실행
+//{
+//    printf("Hello World While: %d\n", Count);
+//    Count++;
+//}
+//Count = 1;
+//do
+//{
+//    printf("Hello World While: %d\n", Count);
+//    Count++;
+//} while ((Count % 3) != 0);
+//
+////일단 한 번 실행하고 while 조건이 참이면 코드 블럭 실행
+
+/*
+Continue
+- 반복문 안에서 사용
+- continue를 만나면 그 이후의 코드는 스킵하고 다음 반복을 진행
+
+Break
+- 반복문이나 Switch문에서 문장을 벗어나는 기능
+*/
+/*
+랜덤 Random
+- 무작위로 숫자를 선택하는 법
+- C 스타일 : rand() 함수 활용 srand(time(0)); 시드값 설정
+
+C++ 스타일
+    - #include<random>
+    - C 스타일보다 많은 기능을 제공
+
+*/
+//C 스타일 랜덤 사용법
+//int RandomNumber = rand();
+////srand(time(0));
+//srand(0);
+//for (int i = 1; i < 10; i++)
+//{
+//    printf("무작위 수 : %d\n", RandomNumber);
+//}
+//// 0~5 까지 숫자를 랜덤으로 구하고 싶다.
+//int RandomNumber1 = rand() % 6;
+//// 1~6 까지 숫자를 랜덤으로 구하고 싶다.
+//int RandomNumber2 = (rand() % 6) + 1;
+
+//C++ 스타일 랜덤 사용법
+std::random_device RandomDevice;
+std::mt19937 Generate(RandomDevice());
+
+printf("균등분포 : ");
+std::uniform_int_distribution<> uniformDis(1, 100);
+for (int i = 0; i < 10; i++)
+{
+    int Number = uniformDis(Generate);
+    printf("%d", Number);
+    if (i < 9)
+    {
+        printf(", ");
+    }
+}
+printf("\n");
+
+
+printf("정규분포 : ");
+std::normal_distribution<> normalDis(80, 10);
+
+for (int i = 0; i < 10; i++)
+{
+    float fNumber = normalDis(Generate);
+    printf("%.2f", fNumber);
+    if (i < 9)
+    {
+        printf(", ");
+    }
+}
+printf("\n");
+
 //비트 연산자 
 ////bit : 0,1을 저장하는 단위
 ///*
