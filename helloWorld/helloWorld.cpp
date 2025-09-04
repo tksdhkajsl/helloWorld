@@ -291,134 +291,448 @@ int main() //엔트리 포인트 : 코드가 시작되는 곳
    // printf("백의 자리 수는 %d , 십의 자리 수는 %d, 일의 자리 수는 %d 이고, \n", hundred, ten, one);
    // printf("각 수의 합은 %d 입니다.", hundred + ten + one);
     //실습 Day_2
-    int a = 0;
-    int b = 0;
-    int c = 0;
-    // 숫자를 입력받아 양수인지 음수인지 0인지 출력
+    //int a = 0;
+    //int b = 0;
+    //int c = 0;
+    //// 숫자를 입력받아 양수인지 음수인지 0인지 출력
 
-    printf("숫자를 입력해주세요\n");
-    std::cin >> a;
+    //printf("숫자를 입력해주세요\n");
+    //std::cin >> a;
 
-    if (a < 0) 
+    //if (a < 0) 
+    //{
+    //    printf("입력하신 %d는 음수입니다.\n", a);
+    //}
+    //else if (a > 0) 
+    //{
+    //    printf("입력하신 %d는 양수입니다.\n", a);
+    //}
+    //else
+    //{
+    //    printf("입력하신 %d는 0입니다.\n", a);
+    //}
+
+    //// 숫자를 입력받아 홀수인지 짝수인지 출력
+
+    //printf("숫자를 입력해주세요\n");
+    //std::cin >> a;
+
+    //if (a % 2 == 0) {
+    //    printf("입력하신 %d는 짝수입니다.\n", a);
+    //}
+    //else {
+    //    printf("입력하신 %d는 홀수입니다.\n", a);
+    //}
+    //// 두 수를 입력 받아 더 큰 수를 출력하기 같을 경우는 같다고 출력
+    //printf("두 숫자를 입력해주세요\n");
+    //std::cin >> a;
+    //std::cin >> b;
+
+    //if (a > b) {
+    //    printf("입력하신 a = %d, b = %d 이므로 a가 더 큽니다.\n", a, b);
+    //}
+    //else if(a < b){
+    //    printf("입력하신 a = %d, b = %d 이므로 b가 더 큽니다.\n", a, b);
+    //}
+    //else {
+    //    printf("입력하신 a = %d, b = %d 이므로 두 수는 같습니다.\n", a, b);
+    //}
+    ////나이와 키를 입력 받아 6세 이상 120cm 이상일 때
+    ////롤러코스터 탑승 가능 그외에는 불가능 출력
+    //printf("나이를 입력해주세요\n");
+    //std::cin >> a;
+    //printf("키를 입력해주세요\n");
+    //std::cin >> b;
+
+    //if (a >= 6 && b >= 120) {
+    //    printf("롤러코스터 탑승 기준에 부합합니다. 탑승 가능\n");
+    //}
+    //else{
+    //    printf("롤러코스터 탑승 기준에 부합하지 않습니다. 탑승 불가능\n");
+    //}
+    //// 점수를 입력 받아 90 >= A , 80 >= B, 70 >= C, 60 >= D, 나머지 F
+    //printf("점수를 입력해주세요\n");
+    //if (a > b) {
+    //    printf("입력하신 a = %d, b = %d 이므로 a가 더 큽니다.\n", a, b);
+    //}
+    //else if(a < b){
+    //    printf("입력하신 a = %d, b = %d 이므로 b가 더 큽니다.\n", a, b);
+    //}
+    //else {
+    //    printf("입력하신 a = %d, b = %d 이므로 두 수는 같습니다.\n", a, b);
+    //}
+    ////나이와 키를 입력 받아 6세 이상 120cm 이상일 때
+    ////롤러코스터 탑승 가능 그외에는 불가능 출력
+    ////unsigned int : 정수가 양수 고정인 정보만 사용되면 해당 문구를 추가하여 최적화
+    ////const unsigned int LimitAge = 5;
+    ////const float LimitHeight = 120.0f; 
+    ////암시적 변환(보통 표현 범위가 큰 쪽으로 변경됨)
+    //printf("나이를 입력해주세요\n");
+    //std::cin >> a;
+    //printf("키를 입력해주세요\n");
+    //std::cin >> b;
+
+    //if (a >= 6 && b >= 120) { //매직넘버의 사용은 안 좋다.
+    //    printf("롤러코스터 탑승 기준에 부합합니다. 탑승 가능\n");
+    //}
+    //else{
+    //    printf("롤러코스터 탑승 기준에 부합하지 않습니다. 탑승 불가능\n");
+    //}
+    //// 점수를 입력 받아 90 >= A , 80 >= B, 70 >= C, 60 >= D, 나머지 F
+    //printf("점수를 입력해주세요\n");
+    //std::cin >> a;
+    //if (a >= 90) {
+    //    printf("점수가 %d 이므로 A 학점입니다.\n", a);
+    //}
+    //else if (a >= 80) {
+    //    printf("점수가 %d 이므로 B 학점입니다.\n", a);
+    //}
+    //else if (a >= 70) {
+    //    printf("점수가 %d 이므로 C 학점입니다.\n", a);
+    //}
+    //else if (a >= 60) {
+    //    printf("점수가 %d 이므로 D 학점입니다.\n", a);
+    //}
+    //else {
+    //    printf("당신의 학점 F입니다. 계절학기 준비하세요.\n");
+    //}
+
+    ////세 과목 점수를 입력 받아 세 과목 모두 60점 이상이면 합격, 아니면 불합격
+    ///*int Point1 = 0;
+    //int Point2 = 0;
+    //int Point3 = 0;
+    //const int AverageLimit = 60;
+    //const int FailLimit = 40;
+    //float Average = (Point1 + Point2 + Point3) / 3.0f;
+    //std::cin >> Point1 >> Point2 >> Point3;*/
+    //printf("수학 점수를 입력해주세요\n");
+    //std::cin >> a;
+    //printf("국어 점수를 입력해주세요\n");
+    //std::cin >> b;
+    //printf("영어 점수를 입력해주세요\n");
+    //std::cin >> c;
+    ////데이터 타입이 int라도  float으로 계산이 진행되어 나온 결과값은 float 타입으로 변환된다.(a + b + c) / 3.0f
+    //if ((a >= 40) && (b >= 40) && (c >= 40) && ((a + b + c) / 3.0f >= 60)) {
+    //    printf("평균 점수가 %d 이므로 합격입니다.\n", ((a + b + c) / 3));
+    //}
+    //else {
+    //    printf("불합격입니다.\n");
+    //}
+
+//3일차
+//0을 입력 받을 때까지 입력을 계속 받고 0이 입력되면 입력 받은 숫자의 합을 출력
+   // int Sum = 0;
+   //int InputNumber = -1;
+//    printf("숫자를 입력하세요.\n");
+//    std::cin >> InputNumber;
+//    for (int i = InputNumber; i != 0; std::cin >> i)
+//    {
+//        printf("숫자를 입력하세요.\n");
+//        Sum = Sum + i;
+//    }
+//    printf("입력 받은 수의 합은 %d입니다.\n", Sum);
+//
+
+//while (InputNumber != 0)
+//{
+//    std::cin >> InputNumber;
+//    Sum += InputNumber; // Sum = Sum + InputNumber;
+//}
+//printf("입력받은 수의 합은 = %d", Sum);
+////// 입력 받은 숫자 구구단 출력
+//    int inputmultiple = 0;
+//    printf("숫자를 입력하세요.\n");
+//    std::cin >> inputmultiple;
+//    printf("%d 단\n", inputmultiple);
+//    for (int i = 1; i < 10; i++)
+//    {
+//        int multiple = inputmultiple * i;        
+//        printf("%d * %d = %d\n", inputmultiple, i, multiple);
+//    }
+    
+//숫자 하나 입력 받고 해당 수의 범위 안에서의 숫자 중 홀수만 출력
+//int InputNum = 0;
+//printf("숫자를 입력하세요.\n");
+//std::cin >> InputNum;
+// InputNum++ // 랙문에서 조건에 <= 쓰기 싫어서 1더함
+//printf("입력한 수의 범위 안의 홀수는 ");
+//for (int i = 0; i < InputNum + 1; i++)
+//{
+//    if ((i % 2) != 0)
+//    {
+//        printf(" %d ", i);
+//    }
+//    
+//}
+//printf("입니다.\n");
+// 1- 100사이의 숫자 중에 7의 배수만 출력
+// const int Min = 0;
+// const int Max = 101;
+//for (int i = 1; i < 101;i++)
+//{
+//    if((i % 7) == 0)
+//      {
+//    printf("%d, ", i);
+//      }
+//}
+
+//입력 받은 숫자만큼의 층을 가진 피라미드 출력
+/*
+1. 값을 입력 받아야 한다.
+2. *가 1,3,5... 찍힌다 해당 값은 a*2-1 이다.
+3. 각층 별로 공백을 (입력값 - (a+1 ))만큼 추가한다.
+*/
+//int Star = 0;
+//printf("숫자를 입력하세요.\n");
+//std::cin >> Star;
+//for (int i = 0; i < Star; i ++)
+//{
+//    for (int k = 0; k < Star - i; k++)
+//    {
+//        printf(" ");
+//    }
+//    for (int j = 0; j < (i * 2) + 1; j++)
+//       { 
+//           printf("*");
+//       }     
+//       printf("\n");
+//}
+//1. 주사위를 100만번 돌려서 6이 몇번 나왔는지 카운팅해서 출력하기
+//const int Count = 1000000;
+//int Counting = 0;
+//printf("주사위 100만 번 던졌을 때 6이 나온 회수는 ");
+//
+//for (int i = 0; i < Count; i++)
+//{
+//
+//    int RandomNumber = (rand() % 6) + 1;
+//    if ((RandomNumber % 6) == 0)
+//    {
+//        
+//        Counting += 1;
+//        //printf("%d", Counting);
+//    }    
+//}
+//printf("%d 입니다.", Counting);
+//2. 가위, 바위, 보 게임 만들기
+//-   3선승제
+//-   enum 활용
+//int user = 0;
+//int wincount = 0;
+//int losecount = 0;
+//
+//enum game
+//{
+//    rock, //0b0001
+//    scissors, //0b0010
+//    paper, //0b0100
+//};
+//while (true)
+//{
+//    printf("0-2 사이 수를 입력해주세요.\n");
+//  
+//    
+//    std::cin >> user;
+//    int random = (rand() % 3);
+//    if (user > 3)
+//    {
+//        printf("입력값을 벗어났습니다. 다시 입력해주세요\n\n");
+//    }
+//   
+//    if (user == rock && random == rock)
+//    {
+//        printf("비겼습니다.\n");
+//        
+//    }
+//    else if(user == rock && random == scissors)
+//    {
+//        printf("이겼습니다.\n");
+//        wincount += 1;
+//        printf("현재 총 이긴 수는 %d 입니다.\n", wincount);
+//        
+//    }
+//    else if (user == rock && random == paper)
+//    {
+//        printf("졌습니다.\n");
+//        losecount += 1;
+//    }
+//
+//    if (user == scissors && random == rock)
+//    {
+//        printf("졌습니다.\n");
+//        losecount += 1;
+//    }
+//    else if (user == scissors && random == scissors)
+//    {
+//        printf("비겼습니다.\n");
+//        
+//    }
+//    else if (user == scissors && random == paper)
+//    {
+//        printf("이겼습니다.\n");
+//        wincount += 1;
+//        printf("현재 총 이긴 수는 %d 입니다.\n", wincount);
+//        
+//    }
+//
+//    if (user == paper && random == rock)
+//    {
+//        printf("이겼습니다.\n");
+//        wincount += 1;
+//        printf("현재 총 이긴 수는 %d 입니다.\n", wincount);
+//        
+//    }
+//    else if (user == paper && random == scissors)
+//    {
+//        printf("졌습니다.\n");
+//        losecount += 1;
+//    }
+//    else if (user == paper && random == paper)
+//    {
+//        printf("비겼습니다.\n");
+//        
+//        
+//    }
+//    if(wincount == 3)
+//    {
+//        printf("3승 했으므로 최종 승리하였습니다.\n");
+//        break;
+//    }
+//    else if (losecount == 3)
+//    {
+//        printf("com이 먼저 3승 했으므로 재승부합니다.\n");
+//        wincount = 0;
+//        losecount = 0;
+//        printf("승수가 %d 으로 초기화되었습니다.\n\n", wincount);
+//    }
+//    
+//}
+////3.  하이 로우
+////  - 컴퓨터가 1~100 사이의 임의의 숫자를 선택하고,
+////    사용자가 맞출 때까지 입력을 받아 "더 높게", "더 낮게" 등의 힌트를 제공하는 게임
+////  - 5번안에 맞춰야 승리
+//srand(time(0)); //해당 값은 타입을 적용하는 것이 아님 시작 위치를 임의로 하여 랜덤성을 높이는 기능 이후 rand 로 타입설정을 하여 랜덤 값을 완성하면 됨.
+//int UserInput = 0;
+//int Count100 = 0;
+//int Random100 = (rand() % 100) + 1;
+//while(true)
+//{
+//    
+//    printf("1 - 100 사이 수를 찾는 게임입니다.\n 수를 입력하세요.\n");
+//    std::cin >> UserInput;   
+//    if (UserInput < Random100)
+//    {
+//        printf("더 높은 수 입니다.\n");
+//        Count100 += 1;
+//    }
+//    
+//    else if (UserInput > Random100)
+//    {
+//        printf("더 낮은 수 입니다.\n");
+//        Count100 += 1;
+//    }
+//    else if (UserInput < 5)
+//    {
+//        UserInput = 0;
+//        Count100 = 0;
+//        printf("회수를 초과했습니다. 다시하세요.\n");
+//    }
+//    else if (UserInput == Random100)
+//    {
+//        printf("값을 찾았습니다. 정답은 %d 였습니다.\n", Random100);
+//        break;
+//    }
+//}
+
+//4.  공포 게임의 인벤토리를 비트플래그로 표현하기
+//  - 아이템 종류를 나타내는 enum을 만들고
+//  - 특정 아이템을 추가하고 삭제하는 예시 보여주기
+
+//인벤토리 비트 내용에 따라서 출력
+//이미 있는 아이템을 추가하려고하면 메세지 출력 반대도 마찬가지 
+int UserItem = 0;
+
+
+while (true)
+{
+    std::cin >> UserItem;
+    int GetItem = 0;
+    int DelItem = 0;
+    enum Item
     {
-        printf("입력하신 %d는 음수입니다.\n", a);
-    }
-    else if (a > 0) 
+        key = 1,
+        Hurb ,
+        Light  ,
+    };
+    if (UserItem == 1)
     {
-        printf("입력하신 %d는 양수입니다.\n", a);
+        printf("무슨 아이템을 얻겠습니까?\n1번 열쇠\n2번 허브\n3번 손전등\n ");
+        std::cin >> GetItem;
+        if (GetItem  == Item::key)
+        {
+            if (Item::key != 0b0010)
+            {
+                printf("아이템을 얻었습니다.");
+            }
+            
+        }
+        else if (GetItem == Item::Hurb)
+        {
+
+        }
+        else if (GetItem  == Item::Light)
+        {
+
+        }
+        else
+        {
+            printf("잘못 입력한 키입니다. 다시 입력하세요. ");
+        }
     }
-    else
+    else if (UserItem == 2)
     {
-        printf("입력하신 %d는 0입니다.\n", a);
-    }
+        printf("무슨 아이템을 버리겠습니까?\n1번 열쇠\n2번 허브\n3번 손전등\n");
+        std::cin >> DelItem;
+        if (GetItem == 1)
+        {
 
-    // 숫자를 입력받아 홀수인지 짝수인지 출력
+        }
+        else if (GetItem == 2)
+        {
 
-    printf("숫자를 입력해주세요\n");
-    std::cin >> a;
+        }
+        else if (GetItem == 3)
+        {
 
-    if (a % 2 == 0) {
-        printf("입력하신 %d는 짝수입니다.\n", a);
+        }
+        else
+        {
+            printf("잘못 입력한 키입니다. 다시 입력하세요. ");
+        }
     }
-    else {
-        printf("입력하신 %d는 홀수입니다.\n", a);
-    }
-    // 두 수를 입력 받아 더 큰 수를 출력하기 같을 경우는 같다고 출력
-    printf("두 숫자를 입력해주세요\n");
-    std::cin >> a;
-    std::cin >> b;
+}
 
-    if (a > b) {
-        printf("입력하신 a = %d, b = %d 이므로 a가 더 큽니다.\n", a, b);
-    }
-    else if(a < b){
-        printf("입력하신 a = %d, b = %d 이므로 b가 더 큽니다.\n", a, b);
-    }
-    else {
-        printf("입력하신 a = %d, b = %d 이므로 두 수는 같습니다.\n", a, b);
-    }
-    //나이와 키를 입력 받아 6세 이상 120cm 이상일 때
-    //롤러코스터 탑승 가능 그외에는 불가능 출력
-    printf("나이를 입력해주세요\n");
-    std::cin >> a;
-    printf("키를 입력해주세요\n");
-    std::cin >> b;
-
-    if (a >= 6 && b >= 120) {
-        printf("롤러코스터 탑승 기준에 부합합니다. 탑승 가능\n");
-    }
-    else{
-        printf("롤러코스터 탑승 기준에 부합하지 않습니다. 탑승 불가능\n");
-    }
-    // 점수를 입력 받아 90 >= A , 80 >= B, 70 >= C, 60 >= D, 나머지 F
-    printf("점수를 입력해주세요\n");
-    if (a > b) {
-        printf("입력하신 a = %d, b = %d 이므로 a가 더 큽니다.\n", a, b);
-    }
-    else if(a < b){
-        printf("입력하신 a = %d, b = %d 이므로 b가 더 큽니다.\n", a, b);
-    }
-    else {
-        printf("입력하신 a = %d, b = %d 이므로 두 수는 같습니다.\n", a, b);
-    }
-    //나이와 키를 입력 받아 6세 이상 120cm 이상일 때
-    //롤러코스터 탑승 가능 그외에는 불가능 출력
-    //unsigned int : 정수가 양수 고정인 정보만 사용되면 해당 문구를 추가하여 최적화
-    //const unsigned int LimitAge = 5;
-    //const float LimitHeight = 120.0f; 
-    //암시적 변환(보통 표현 범위가 큰 쪽으로 변경됨)
-    printf("나이를 입력해주세요\n");
-    std::cin >> a;
-    printf("키를 입력해주세요\n");
-    std::cin >> b;
-
-    if (a >= 6 && b >= 120) { //매직넘버의 사용은 안 좋다.
-        printf("롤러코스터 탑승 기준에 부합합니다. 탑승 가능\n");
-    }
-    else{
-        printf("롤러코스터 탑승 기준에 부합하지 않습니다. 탑승 불가능\n");
-    }
-    // 점수를 입력 받아 90 >= A , 80 >= B, 70 >= C, 60 >= D, 나머지 F
-    printf("점수를 입력해주세요\n");
-    std::cin >> a;
-    if (a >= 90) {
-        printf("점수가 %d 이므로 A 학점입니다.\n", a);
-    }
-    else if (a >= 80) {
-        printf("점수가 %d 이므로 B 학점입니다.\n", a);
-    }
-    else if (a >= 70) {
-        printf("점수가 %d 이므로 C 학점입니다.\n", a);
-    }
-    else if (a >= 60) {
-        printf("점수가 %d 이므로 D 학점입니다.\n", a);
-    }
-    else {
-        printf("당신의 학점 F입니다. 계절학기 준비하세요.\n");
-    }
-
-    //세 과목 점수를 입력 받아 세 과목 모두 60점 이상이면 합격, 아니면 불합격
-    /*int Point1 = 0;
-    int Point2 = 0;
-    int Point3 = 0;
-    const int AverageLimit = 60;
-    const int FailLimit = 40;
-    float Average = (Point1 + Point2 + Point3) / 3.0f;
-    std::cin >> Point1 >> Point2 >> Point3;*/
-    printf("수학 점수를 입력해주세요\n");
-    std::cin >> a;
-    printf("국어 점수를 입력해주세요\n");
-    std::cin >> b;
-    printf("영어 점수를 입력해주세요\n");
-    std::cin >> c;
-    //데이터 타입이 int라도  float으로 계산이 진행되어 나온 결과값은 float 타입으로 변환된다.(a + b + c) / 3.0f
-    if ((a >= 40) && (b >= 40) && (c >= 40) && ((a + b + c) / 3.0f >= 60)) {
-        printf("평균 점수가 %d 이므로 합격입니다.\n", ((a + b + c) / 3));
-    }
-    else {
-        printf("불합격입니다.\n");
-    }
-    return 0;
+  
+/*
+주사위 게임 만들기
+1. 초기 세팅
+플레이어와 컴퓨터 모두 일정 금액(예: 10000원)으로 시작한다.
+2. 1차 주사위 굴리기
+게임 시작 시, 플레이어와 컴퓨터가 각각 주사위(1~6)를 한 번 굴린다.
+각자 주사위 결과를 공개한다.
+3. 배팅
+이전 판에서 진 쪽이 배팅 금액을 제시한다.
+제시한 배팅 금액은 두 사람 모두의 현재 소지 금액 이하이어야 한다.
+배팅 금액은 두 사람 모두에게서 차감된다.
+4. 2차 주사위 굴리기
+다시 플레이어와 컴퓨터가 각각 주사위를 한 번씩 굴린다.
+(1차+2차) 주사위의 합을 계산한다.
+5. 승패 판정 및 금액 증감
+합이 더 큰 쪽이 배팅 금액의 총합(즉, 2×배팅금액)을 모두 가져간다.
+동점일 경우 배팅 금액은 그대로 반환한다.
+6. 다음 판 진행
+소지금이 0 이하인 쪽이 나오면 게임 종료.
+*/
 }
 
 // 프로그램 실행: <Ctrl+F5> 또는 [디버그] > [디버깅하지 않고 시작] 메뉴
