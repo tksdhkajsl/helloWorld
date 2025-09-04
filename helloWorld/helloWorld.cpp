@@ -660,12 +660,36 @@ while (true)
     int DelItem = 0;
     enum Item
     {
+        key =1,
+        Hurb ,
+        Light  ,
+    };
+    if (UserItem == 1)
+while (true)
+{
+    std::cin >> UserItem;
+    int GetItem = 0;
+    int DelItem = 0;
+    enum Item
+    {
         key = 1,
         Hurb ,
         Light  ,
     };
     if (UserItem == 1)
     {
+        printf("무슨 아이템을 얻겠습니까?\n1번 열쇠\n2번 허브\n3번 손전등\n ");
+        std::cin >> GetItem;
+        if (GetItem  == 1)
+        {
+           
+        }
+        else if (GetItem == 2)
+        {
+
+        }
+        else if (GetItem  == 3)
+        {
         printf("무슨 아이템을 얻겠습니까?\n1번 열쇠\n2번 허브\n3번 손전등\n ");
         std::cin >> GetItem;
         if (GetItem  == Item::key)
@@ -680,9 +704,24 @@ while (true)
         {
 
         }
+        else
+        {
+            printf("잘못 입력한 키입니다. 다시 입력하세요. ");
+        }
+    }
+    else if (UserItem == 2)
+    {
+        printf("무슨 아이템을 버리겠습니까?\n1번 열쇠\n2번 허브\n3번 손전등\n");
+        std::cin >> DelItem;
+        if (GetItem == 1)
+        {
+        }
         else if (GetItem  == Item::Light)
         {
 
+        }
+        else if (GetItem == 2)
+        {
         }
         else
         {
@@ -696,6 +735,15 @@ while (true)
         if (GetItem == 1)
         {
 
+        }
+        else if (GetItem == 3)
+        {
+
+        }
+        else
+        {
+            printf("잘못 입력한 키입니다. 다시 입력하세요. ");
+        }
         }
         else if (GetItem == 2)
         {
