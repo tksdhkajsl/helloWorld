@@ -125,9 +125,13 @@
   <ItemGroup>
     <ClCompile Include="header.cpp" />
     <ClCompile Include="helloWorld.cpp" />
+    <ClCompile Include="Practice.cpp" />
+    <ClCompile Include="TestMath.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header.h" />
+    <ClInclude Include="Practice.h" />
+    <ClInclude Include="TestMath.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
