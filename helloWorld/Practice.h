@@ -30,3 +30,87 @@ enum Item
 void Practice0905_07(int Star);
 int Pyramid(int Star);
 
+//템플릿 함수는 헤더에 리턴 값까지 설정하는 게 좋다
+
+//탬플릿 함수 만들기
+//1. Min
+//파라메터 2개
+//리턴 : 파라메터 중 작은 수 리턴
+template<typename T>
+T Min(T Number1, T Number2)
+{
+	
+	if (Number1 < Number2)
+	{
+		return Number1;
+	}
+	else if (Number1 > Number2)
+	{
+		return Number2;
+	}
+}
+
+
+//2. Max
+//파라메터 2개
+//리턴 : 파라메터 중 큰 수 리턴
+template<typename T>
+T Max(T Number1, T Number2)
+{
+
+	if (Number1 > Number2)
+	{
+		return Number1;
+	}
+	else if (Number1 < Number2)
+	{
+		return Number2;
+	}
+}
+
+
+//3. Clamp
+//파라메터 3개(value, min, max)
+//리턴
+//value값이 min보다 작으면 min
+//value값이 max보다 크면 max
+//value값이 min과 max 사이면 value
+
+
+template<typename T>
+T Clamp(T Min, T Max, T Value)
+{
+
+	if (Value >= Min && Value <= Max)
+	{
+		return Value;
+	}
+	else if (Value > Max)
+	{
+		return Max;
+	}
+	else if (Value < Min)
+	{
+		return Min;
+	}
+}
+
+//4. 재귀함수를 이용해서 팩토리얼 값을 만드는 함수 만들기
+//5팩토리얼 = 5 * 4 * 3 * 2 * 1
+int Factorial(int Num);
+
+float Average(float Num1, float Num2, float Num3);
+
+int SalePrice(int Price, int Sale);
+
+void DiceResult();
+
+int PointGrade(int Point);
+
+void SlotMachine();
+
+void RPG();
+
+void Card();
+
+void  DigitNum();

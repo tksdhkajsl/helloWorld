@@ -47,7 +47,17 @@ int main() //엔트리 포인트 : 코드가 시작되는 곳
 	/*Practice0905_01();
 	Practice0905_02();*/
 	
-	Practice0905_06();
+	/*float Value = Clamp(5.2f, 7.3f, 8.0f);
+	printf("%.2f", Value);*/
+	/*DiceResult();
+
+	PointGrade(88);
+	
+
+	int Value = SalePrice(43000,50);
+	printf("%d", Value);*/
+	
+	DigitNum();
 	return 0;
 //
 //int Number = Sum(1, 7); //Sum 함수를 호출했다. 파라메터로 1과 7을 넘겼다. 그리고 8을 돌려 받았다.
