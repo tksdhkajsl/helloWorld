@@ -38,27 +38,9 @@
 #include <random>
 #include "TestMath.h"
 #include "Practice.h"
+#include <limits.h>
 
 //using namespace std;
-
-
-int main() //엔트리 포인트 : 코드가 시작되는 곳
-{
-	/*Practice0905_01();
-	Practice0905_02();*/
-	
-	/*float Value = Clamp(5.2f, 7.3f, 8.0f);
-	printf("%.2f", Value);*/
-	/*DiceResult();
-
-	PointGrade(88);
-	
-
-	int Value = SalePrice(43000,50);
-	printf("%d", Value);*/
-	
-	DigitNum();
-	return 0;
 //
 //int Number = Sum(1, 7); //Sum 함수를 호출했다. 파라메터로 1과 7을 넘겼다. 그리고 8을 돌려 받았다.
 //
@@ -103,6 +85,122 @@ int main() //엔트리 포인트 : 코드가 시작되는 곳
 //
 //return 0;
 //
+
+	/*
+	배열(Array)(선형자료구조)
+		- 같은 데이터 타입을 가진 요소들이 연속적으로 저장되어 있는 데이터 구조
+		- 장점 : 빠르게 각 요소에 접근이 가능
+		- 단점 : 크기가 고정이다. 중간에 데이터 삽입/삭제가 어렵다.
+	*/
+
+	/*
+	캐스팅(Casting)
+		- 하나의 타입을 다른 데이터 타입으로 변경하는 것
+
+	*/
+int main() //엔트리 포인트 : 코드가 시작되는 곳
+{
+	/*Practice0905_01();
+	Practice0905_02();*/
+	
+	/*float Value = Clamp(5.2f, 7.3f, 8.0f);
+	printf("%.2f", Value);*/
+	/*DiceResult();
+
+	PointGrade(88);
+	
+
+	int Value = SalePrice(43000,50);
+	printf("%d", Value);*/
+	//int a = 10;
+	//int Array[5]; //int 5개를 관리하는 배열
+	//Array[0] = 10; //배열의 첫 번째 요소에 10을 대입한다.
+	//Array[3] = 40; //배열의 4 번째 요소에 40을 대입한다.
+
+	//int Array2[5] = { 1,2,3,4,5 };
+	//int Array3[5] = { 1,2,3 };
+
+	//int Array4[5] = {};
+	//const int Size = 5;
+	//int Array5[Size] = {};
+	//sizeof(Array5); //Array5의 전체 바이트 크기를 알수 있다.
+	//sizeof(Array5[0]); //Array5의 요소 하나의 크기를 알 수 있다.
+	//int ElementCount = sizeof(Array5) / sizeof(Array5[0]); //배열 요소의 개수
+	//int Size2 = 5;
+	// int Array6[Size2] = {}; 배열 선언할 때 크기를 변수로 지정할 수 없다.
+	//Array[5] = 60; //원래는 터짐 버퍼오버런 ,배열 영역 밖을 접근하려고 하기 때문에 에러 발생 //키워드 문법적으로 이미 정해진 것
+	// 간단 실습
+	//1. 배열을 만들고 초기화 해보기
+	//int Numbers[3] = { 23,4,5 };
+
+	////2. 배열의 모든 요소의 값을 더하고 평균 구하기
+	//int Array[5] = { 1,2,3,4,5 };
+	//float ArrayAverage = 0.0f;
+	//int ArraySum = 0;
+	//int ArrayCount = static_cast<int>(sizeof(Numbers) / sizeof(Numbers[0]));
+	//for (int i = 0; i <ArrayCount; i++)
+	//{
+	//	ArraySum += Numbers[i];		
+	//}
+	//ArrayAverage = ArraySum/static_cast<float>(ArrayCount);
+	//printf("배열의 모든 요소 더한 값은 %d 이고 평균은 %.2f이다.\n", ArraySum, ArrayAverage);
+	////3. 배열의 모든 요소 중 최대값과 최소값 구하기
+	//int MaxNumber = INT_MIN;
+	//int MinNumber = INT_MAX;
+	//for (int i = 0; i < ArrayCount; i++)
+	//{
+	//	if (MaxNumber < Numbers[i])
+	//	{
+
+	//		MaxNumber = Numbers[i];
+	//	}
+	//	if (MinNumber > Numbers[i])
+	//	{
+	//		MinNumber = Numbers[i];
+	//	}
+	//}
+
+	/*
+	이차원 배열 
+		- 배열을 이차원으로 표현한 것
+		- int Array[4][3] = { {1,2,3},{4,5,6},{7,8,9},{0,1,2} };
+		int 3개 짜리 배열이 4줄 들어있다.
+		사실 int Array[12] 랑 메모리 구조가 같다.
+	*/
+	//int Array7[4][3] = { {1,2,3},{4,5,6},{7,8,9},{0,1,2} };
+	//int test = Array7[1][2]; //test = 6
+	//int Array8[12] = { 1,2,3,4,5,6,7,8,9,0,1,2 };
+	
+	/*int Array9[9] = { 1,2,3,4,5,6,7,8,9 };
+	BackArray(Array9,9);*/
+	
+
+	/*
+	피셔-에이츠 알고리즘
+		- 배역의 내용을 랜덤하게 겄는 셔플 알고리즘
+		- 동일한 확률로 섞이도록 증명 완료된 알고리즘
+
+		- 알고리즘 순서
+			1. 배역의 마지막 요소에서 첫 요소까지 순회
+			2. 현재 요소의 인덱스(I)와 0 ~ i 중 임의의 인덱스(j)를 선택한다.
+			3. i번째 와 j번째 요소를 서로 교환
+			4. i가 0이 될 때까지 반복
+	*/
+	/*Day0908_Dice();*/
+	/*
+	참조(Referance)
+		- 변수에 별명
+		- 참조를 변경할 경우 원본 변수고 함께 수정이 된다. -> 함수 파라메터로 사용하면 편리
+		- 참조는 항상 어떤 변수와 연결되어 있어야 함.
+		함수 파라메터에 참조를 사용할 때
+			-파라메터 값을 수정하는 출력용 파라메터일 경우 out이라는 접두사
+			= 파라메터 값을 읽기만 하는 경우에는 const
+	*/
+
+	RPG();
+
+	return 0;
+
 }
 
 

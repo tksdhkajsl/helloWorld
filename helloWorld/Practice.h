@@ -75,10 +75,11 @@ T Max(T Number1, T Number2)
 //value값이 min보다 작으면 min
 //value값이 max보다 크면 max
 //value값이 min과 max 사이면 value
+void Practice0905_09();
 
 
 template<typename T>
-T Clamp(T Min, T Max, T Value)
+T Clamp (const T& Value, const T& Min,const T& Max)
 {
 
 	if (Value >= Min && Value <= Max)
@@ -114,3 +115,28 @@ void RPG();
 void Card();
 
 void  DigitNum();
+
+void Day0908_casting();
+
+void Shuffle(int Array[], int Length);
+
+//void TestRef(int& OutData, const int ReadData)
+//{
+//	OutData *= 2;
+//	//ReadData = 10;
+//}
+//
+//void Day0908_Ref()
+//{
+//	int Num = 10;
+//	int Num2 = 20;
+//	int& Ref = Num; //Num의 참조는 Ref다
+//
+//	TestRef(Num, Num2);
+//}
+
+void Day0908_Dice();
+
+void BackArray(int Array[], int Length);
+
+void Lotto();
