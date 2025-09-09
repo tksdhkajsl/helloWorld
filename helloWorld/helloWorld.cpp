@@ -29,6 +29,9 @@
  브랜치 분기
  변수는 사용하기 직전에 선언한다.
 */
+#define _CRTDBG_MAP_ALLOC
+#define new new(_NORMAL_BLOCK, __FILE__, __LINE__)
+#include <crtdbg.h>
 #define _CRT_SECURE_NO_WARNINGS
 #include <iostream> //입출력 관련
 #include <cstdio>  // stdio.h에 네임 스페이스 추가한 래퍼
@@ -38,6 +41,7 @@
 #include <random>
 #include "TestMath.h"
 #include "Practice.h"
+#include "Practice_250909.h"
 #include <limits.h>
 
 //using namespace std;
@@ -197,7 +201,85 @@ int main() //엔트리 포인트 : 코드가 시작되는 곳
 			= 파라메터 값을 읽기만 하는 경우에는 const
 	*/
 
-	RPG();
+	/*
+	포인터(Pointer)
+		- 메모리 주소를 저장하는 데이터 타입
+		- 각 데이터 타입에 *만 붙이면 포인터 타입
+		ex)int* 인터저 포인터, float* , char*
+		-	주소 연산자(&) 
+				int i =10;
+				int* p = &i; i의 주소를 int* p에 대입해라.
+				int Numbers =1012;
+				(&Numbers;)
+		- 포인터 연산자
+		-	간접참조 연산자(*)
+			int i = 20;
+			int* p = &i;
+			(*p) = 30;  i = 30;과 같다
+		-산술 연산자(+,-,++,--)
+		int i 30;
+		int* p = &i;
+		p = p + 1;  //예시로 p가 0x0004라고 했을 때 p + 1 값은 0x0008
+		double d = 10.5;
+		double* pD = &d;
+		pD += 1; //pD가 원래 0x0000이라 했을 때 pD +=1 는 0x0008
+		*/
+		//배열과 포인터 (기본적으로 같다)
+	
+	/*int* p = nullptr;*/
+	//int *p2 = nullptr;
+	/*
+	C++의 메모리 영역(단순화된 버전)
+	-코드 영역 : 실행코드가 저장되는 공간
+
+	-데이터 영역 : 프로그램이 시작할 때부터 끝날때까지 유지되는 변수가 저장되는 공간
+
+	-힙 영역 : 램 그 자체 프로그램이 실행 중에 필요에 따라 직접 메모리를 할당 받고 사용하는 공간
+		- 운영체제가 관리하기 떄문에 힙을 할당 받는 행위는 느리다.
+		- 메모리를 할당 받았으면 사용 후 반드시 해제해야 한다.(메모리 릭(메모리 누수) 발생)
+	-스택 영역 : 함수가 호출 될 때마다 필요한 변수(지역 변수)가 저장되는 공간
+		- 함수가 끝나면 자동으로 정리
+	*/
+	/*
+	정적(static) : 프로그램 실행 전에 이미 결정난 것들
+	동적(Dynamic) : 프로그램 실행 중에 결정이 되는 것들
+	*/
+	/*
+	동적 할당Dynamic Allocatoin)	
+		- 프로그램 실행 중(Runtime)에 메모리를 사용하기 위해 확보하는 행위
+		- 운영체제(OS)에게 요청함 -> 그래서 늦다.
+		- C 스타일 
+			할당 : malloc
+			해제 : free
+			단순 메모리 블럭만 받는 형식(초기화 없음, 타입 안정성 없음, 생성자/소멸자 실행X)
+		- C++ 스타일
+		-	할당 : new
+		-	해제 : 일반 변수delete, 배열 delete[]
+			int* Data = new int(5); int 하나를 할당 받는데 주소가 가르키는 값은 5로 설정해라	
+			delete Data;
+			Data = nullptr;
+			int* Array = new int[10]; int 10개짜리 배열을 만들어라
+			delete[] Array; 배열은 반드시 해당 식으로 해제 (delete Array; 배열의 1번째만 해제)
+			Array = nullptr;
+			특정 객체(Object)를 생성하는 방식(초기화가 있다. 타입 안정성이 있다/생성자와 소멸자가 있다.)
+		- 메모리 할당과 성능 문제
+			메모리 할당은  오래 걸린다.(컴퓨터 입장에서 느리다. 운영체제 메모리관리나 적절한 사이즈를 찾는데 시간이 걸림)
+			메모리 단편화 문제(메모리 할당 해제를 반복하다가 전체 빈공간은 충분한데. 연속된 빈공간이 부족해지는 현상)
+			CPU 캐시 히트 ,
+		-메모리 릭
+			할당한 메모리를 반환하지 않아 해당 영역을 사용하지 못하게 되는 현상
+
+
+	*/
+	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
+
+	//Day0909_DynamicAllocation();
+	
+	//Day0909_Example();
+
+	Day0908_MazeEscape();
+	
+	//HighRow();
 
 	return 0;
 

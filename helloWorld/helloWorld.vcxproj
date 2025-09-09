@@ -127,11 +127,13 @@
     <ClCompile Include="helloWorld.cpp" />
     <ClCompile Include="Practice_250905.cpp" />
     <ClCompile Include="Practice_250908.cpp" />
+    <ClCompile Include="Practice_250909.cpp" />
     <ClCompile Include="TestMath.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header.h" />
     <ClInclude Include="Practice.h" />
+    <ClInclude Include="Practice_250909.h" />
     <ClInclude Include="TestMath.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

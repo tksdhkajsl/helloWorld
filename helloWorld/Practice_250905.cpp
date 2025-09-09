@@ -375,7 +375,7 @@ void SlotMachine()
 		 }
 		else
 		{
-			if (Random1 == Random2 == Random3)
+			if (Random1 == Random2 && Random1 == Random3)//(Random1 == Random2 && Random2 == Random3)  //(a == b == c) 잘못된 방식
 			{
 							
 				if (Random1 == 7)
@@ -413,11 +413,14 @@ void SlotMachine()
 //공격을 할 때 상대방에게 5~15의 데미지를 준다.
 //10 % 의 확률로 크리티컬이 발생해 2배의 데미지를 준다.
 //상대방의 HP가 0 이하가 되면 승리한다.
-void RPG()
+
+void RPG(int& UserHP)
 {
 	srand(time(0));
-	int UserHP = 100;
+	
 	int ComHP = 100;
+	
+	
 
 	while (true)
 	{		
@@ -444,6 +447,7 @@ void RPG()
 					if (ComHP <= 0)
 					{
 						printf(" 적을 처치하였습니다.!!\n승리!!!\n");
+						
 						break;
 					}
 				}
@@ -460,7 +464,7 @@ void RPG()
 					printf(" 남은 HP\n User : %d\nCom : %d\n", UserHP, ComHP);
 					if (UserHP <= 0)
 					{
-						printf(" You Died!!\n");
+						printf(" You Died!!\n");						
 						break;
 					}
 					
@@ -485,10 +489,12 @@ void RPG()
 					{
 						printf(" You Died!!\n");
 						break;
+						
 					}
 					else if (ComHP <= 0)
 					{
 						printf("적을 처치하였습니다.!!\n승리!!!\n");
+						
 						break;
 					}
 				}

@@ -31,13 +31,13 @@ void Day0908_casting()
 //4. i가 0이 될 때까지 반복 return X
 void Shuffle(int Array[], int Length)
 {
-	/*for (int i = Length - 1; i > 0; i--)
+	for (int i = Length - 1; i > 0; i--)
 	{
 		int j = rand() % (i + 1);
 		int Temp = Array[i];
 		Array[i] = Array[j];
 		Array[j] = Temp;
-	}*/
+	}
 
 }
 
@@ -133,6 +133,8 @@ void Lotto()
 	}
 }
 
+
+
 //심화 미로 탈출 게임 만들기
 
 //2차원 배열을 활용하여 텍스트 기반 미로 탈출 게임을 구현.
@@ -171,3 +173,14 @@ int Maze[MazeHeight][MazeWidth] =
 //플레이어는 ‘P ‘로 표시
 //게임 화면은 다음과 같은 양식을 따른다.
 //
+
+/*
+상: X = X + 0, Y = Y - 1
+하: X = X + 0, Y = Y + 1 
+좌: X = X - 1, Y = Y + 0
+우: X = X + 1, Y = Y + 0 
+*/
+int X, Y;
+int dy[4] = { 0,0,1,-1 };
+int dx[4] = { -1,1,0,0 };
+int Dir = 1;
