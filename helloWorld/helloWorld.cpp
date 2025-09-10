@@ -42,6 +42,7 @@
 #include "TestMath.h"
 #include "Practice.h"
 #include "Practice_250909.h"
+#include "Practice_250910.h"
 #include <limits.h>
 
 //using namespace std;
@@ -102,6 +103,18 @@
 		- 하나의 타입을 다른 데이터 타입으로 변경하는 것
 
 	*/
+/*문자열
+	- 글자 여러개를 모아 문장을 만들어 놓은 것
+	- C언어에서는 문자열을 표현하기 위해 char* 사용.(== char[])
+	- 항상 마지막 문자열은 Null 문자 \0으로 끝난다
+	- char*에는 아스키 코드가 기록된다.
+	
+*/
+/*
+파싱(Parsing)
+	- 문자열을 분석해서 의미있는 정보로 변환하는 과정
+
+*/
 int main() //엔트리 포인트 : 코드가 시작되는 곳
 {
 	/*Practice0905_01();
@@ -277,9 +290,10 @@ int main() //엔트리 포인트 : 코드가 시작되는 곳
 	
 	//Day0909_Example();
 
-	Day0908_MazeEscape();
+	//Day0908_MazeEscape();
 	
 	//HighRow();
+	Day0910_String();
 
 	return 0;
 
