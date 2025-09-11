@@ -100,7 +100,7 @@
 //
 // int a = 50; int b = 50;
 // bool result = a == b; /true °á°ú
-// */
+
 // //float a = 10.0f;
 // //float b = 10.0f;
 // //std::cin >> b;

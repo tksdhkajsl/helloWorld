@@ -297,6 +297,13 @@ void Day0909_DynamicAllocation()
 //	printf("¿‘¥œ¥Ÿ.\n");
 //}
 
+
+
+int MazeWidth = 20;
+int MazeHeight = 10;
+int** Maze = nullptr;
+
+
 void Day0908_MazeEscape()
 {
 	srand(time(0));
