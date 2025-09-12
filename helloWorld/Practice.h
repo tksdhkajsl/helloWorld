@@ -110,7 +110,7 @@ int PointGrade(int Point);
 
 void SlotMachine();
 
-void RPG(int& UserHP);
+void RPG(int& UserHP, int& Wallet);
 
 void Card();
 

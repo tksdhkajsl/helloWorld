@@ -44,6 +44,7 @@
 #include "Practice_250909.h"
 #include "Practice_250910.h"
 #include "Practice_250911.h"
+#include "Practice_250912.h"
 #include <limits.h>
 
 //using namespace std;
@@ -118,7 +119,7 @@
 			- 메모리 주소를 저장하는 데이터 타입
 			- 각 데이터 타입에 *만 붙이면 포인터 타입
 			ex)int* 인터저 포인터, float* , char*
-			-	주소 연산자(&)
+			-	주소 연산자(&) : 변수의 주소를 가져온다.
 					int i =10;
 					int* p = &i; i의 주소를 int* p에 대입해라.
 					int Numbers =1012;
@@ -183,21 +184,66 @@
 
 
 		*/
-/*문자열
-	- 글자 여러개를 모아 문장을 만들어 놓은 것
-	- C언어에서는 문자열을 표현하기 위해 char* 사용.(== char[])
-	- 항상 마지막 문자열은 Null 문자 \0으로 끝난다
-	- char*에는 아스키 코드가 기록된다.
+	/*문자열
+		- 글자 여러개를 모아 문장을 만들어 놓은 것
+		- C언어에서는 문자열을 표현하기 위해 char* 사용.(== char[])
+		- 항상 마지막 문자열은 Null 문자 \0으로 끝난다
+		- char*에는 아스키 코드가 기록된다.
 	
-*/
-/*
-파싱(Parsing)
-	- 문자열을 분석해서 의미있는 정보로 변환하는 과정
+	*/
+	/*
+	파싱(Parsing)
+		- 문자열을 분석해서 의미있는 정보로 변환하는 과정
 
-*/
-/*
-구조체
-*/
+	*/
+	/*
+	구조체(Struct)
+		- 여러 종류의 데이터타입을 하나로 묶을 때 사용.
+		-	프로그램 코드의 가독성과 유지 보수성을 향상시켜 준다.
+		struct Enemy
+		{
+			std::string Name;
+			float Health;
+			float AttackPower;
+			int DropGold;
+		}
+
+		Enemy goblin; //적 하나에 대한 정보 만들기
+		Enemy goblin[3]; //적 3 마리에 대한 정보 만들기
+
+		- 구조체 동적 할당하는 법
+		Enemy* pGoblin = new Enemy(); // 새 적을 동적 할당 받음
+		delete pGoblin;					// 동적할당 받은 것 해제
+		pGoblin = nullptr;			
+		
+		- 구조체 데이터 접근법
+			- 일반적인 경우 점(.) 연산자 사용
+		goblin.Name = "고블린";
+		goblin.Health = 20;
+			- 포인터 변수인 경우 화살표(->) 연산자 사용
+		pGoblin->AttackPower = 5.0f;
+		pGoblin->DropGold = 10;
+
+		- 구조체의 생성자
+			- 객체가 만들어질 때 자동으로 호출되는 특별한 함수
+			- 객체
+			int i = 10; //하나의 인티저 객체 i 생성
+			int Array[3]; //인티저 객체 3개 생성
+			Enemy* pEnemy = new Enemy();	// Enemy 객체 하나가 만들어짐
+
+			- 맴버 변수 초기화에 사용(값을 계산하거나 변경해서 넣을 때 좋음)
+			- 일반 함수와 다른 특징
+				1. 이름이 구조체 이름과 같아야 함.
+				2. 리턴 타입 X
+				3. 객체가 만들어질 때 자동으로 호출됨.
+				4. 생성자가 여러개 있을 수도 있다.
+				5. 없으면 기본 생성자가 자동으로 만들어진다.(무조건 하나는 있다.)
+
+
+		- 구조체의 명령어 오버로딩(덮어쓰기)
+			- 
+	*/
+
 
 int main() //엔트리 포인트 : 코드가 시작되는 곳
 {
@@ -299,18 +345,19 @@ int main() //엔트리 포인트 : 코드가 시작되는 곳
 	*/
 
 	
+	//Day0912_OperatorOverloading();
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 
 	//Day0909_DynamicAllocation();
 	
 	//Day0909_Example();
 
-	//Day0908_MazeEscape();
+	MazeEscapeRun();
 	
 	//HighRow();
 	//Day0910_String();
 	//Day0911();
-
+	//Day0912_Struct();
 	return 0;
 
 }

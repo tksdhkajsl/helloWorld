@@ -7,6 +7,7 @@
 #include "TestMath.h"
 #include "Practice.h"
 #include "Practice_250909.h"
+#include "Practice_250912.h"
 #include <limits.h>
 
 
@@ -299,14 +300,15 @@ void Day0909_DynamicAllocation()
 
 
 
-int MazeWidth = 20;
-int MazeHeight = 10;
-int** Maze = nullptr;
+int mazewidth = 20;
+int mazeheight = 10;
+int** maze = nullptr;
 
 
-void Day0908_MazeEscape()
+
+
+void MazeEscapeRun()
 {
-	srand(time(0));
 	/*
 	*	- 2차원 배열을 활용하여 텍스트 기반 미로 탈출 게임을 구현.
 		- 미로의 구성
@@ -354,70 +356,83 @@ void Day0908_MazeEscape()
 			방향 입력:
 			```
 	*/
-	int UserHp = 100;
-	
-	int PlayerX = 0;
-	int PlayerY = 0;
-	FindStartPosition(PlayerX, PlayerY);
+	Player User;	
+	int HealMenu = 0;
+	FindStartPosition(User.P_SpotX, User.P_SpotY);
 
 	printf("~~ 미로 탈출 게임 ~~\n");
 
 	while (true)
 	{
-		PrintMaze(PlayerX, PlayerY);
-		int InCount = (rand() % 10) + 1;
-		if (IsEnd(PlayerX, PlayerY))
+		int InCount = rand() % 10 + 1;
+		PrintMaze(User.P_SpotX, User.P_SpotY);
+
+		if (IsEnd(User.P_SpotX, User.P_SpotY))
 		{
 			printf("축하합니다! 미로를 탈출했습니다!\n");
 			break;
 		}
 
-		int MoveFlags = PrintAvailableMoves(PlayerX, PlayerY);
+		int MoveFlags = PrintAvailableMoves(User.P_SpotX, User.P_SpotY);
 		MoveDirection Direction = GetMoveInput(MoveFlags);
-		
 		switch (Direction)
 		{
 		case DirUp:
-			PlayerY--;
+			User.P_SpotY--;
 			break;
 		case DirDown:
-			PlayerY++;
+			User.P_SpotY++;
 			break;
 		case DirLeft:
-			PlayerX--;
+			User.P_SpotX--;
 			break;
 		case DirRight:
-			PlayerX++;
+			User.P_SpotX++;
 			break;
 		case DirNone:
 		default:
 			// 있을 수 없음
 			break;
 		}
-
 		if (InCount == 1 || InCount == 3)
 		{
-			RPG(UserHp);
-		
-			if (UserHp == 0)
+			RPG(User.HP,User.Wallet);
+
+			if (User.HP == 0)
 			{
 
-				break;	
+				break;
 			}
-			
-			
-		
+
+
+
 		}
-		else if(InCount == 7)
+		else if (InCount == 7)
 		{
-			printf("체력이 회복되었습니다.\n");
-			UserHp *= 3;
+			printf("성직자와 조우했습니다.\n성직자 : 안녕하세요. 회복 하시겠습니까?\n");
+			printf("1번 HP 100 회복 : 100 Gold\n2번 HP 50 회복 : 60 Gold\n3번 나가기\n");
+			printf("소지금 : %d\n", User.Wallet);
+			std::cin >> HealMenu;
+			if (HealMenu == 1 && User.Wallet >= 100)
+			{
+				
+				User.HP += 100;
+				printf("100 회복되었습니다.\n현재 체력 : %d\n", User.HP);
+			}
+			else if (HealMenu == 2 && User.Wallet >= 50)
+			{
+				User.HP += 50;
+				printf("50 회복되었습니다.\n현재 체력 : %d\n", User.HP);
+			}
+			else
+			{
+				printf("소지금이 부족합니다.\n");
+			}
 		}
 		else
 		{
 			continue;
 		}
-		
 	}
 
 }

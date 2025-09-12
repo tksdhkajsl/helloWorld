@@ -3,6 +3,8 @@
 #include <iostream>
 #include <time.h>
 #include <random>
+#include "Practice_250909.h"
+#include "Practice_250912.h"
 //1 특정 범위안의 랜덤한 수를 리턴
 /*	int 파라메터 2개
 	int 리턴*/
@@ -413,14 +415,18 @@ void SlotMachine()
 //공격을 할 때 상대방에게 5~15의 데미지를 준다.
 //10 % 의 확률로 크리티컬이 발생해 2배의 데미지를 준다.
 //상대방의 HP가 0 이하가 되면 승리한다.
+//void RPG(Player& User)
 
-void RPG(int& UserHP)
+void RPG(int& UserHP , int& Wallet)
 {
 	srand(time(0));
+	Com* pEnemy = new Com();
+	Player User;
 	
-	int ComHP = 100;
+
 	
 	
+	printf("적과 조우했습니다.!!\n체력 : %d\n공격력 : %d\n", pEnemy->C_HP, pEnemy->C_Attack);
 
 	while (true)
 	{		
@@ -428,7 +434,7 @@ void RPG(int& UserHP)
 		int Critical = (rand() % 10) + 1;
 		int Attack = 0;
 		int CriticalAttack = 0;
-		printf("적과 조우했습니다.\n 1번 공격, 2번 도망 \n");
+		printf(" 1번 공격, 2번 도망 \n");
 		std::cin >> Attack;
 		
 
@@ -438,30 +444,31 @@ void RPG(int& UserHP)
 				{
 					CriticalAttack = AttackDamage * 2;
 					printf("크리티컬 히트!! %d 데미지를 주었습니다. \n", CriticalAttack);
-					ComHP -= CriticalAttack;
-					if (ComHP < 0)
+					pEnemy->C_HP -= CriticalAttack;
+					if (pEnemy->C_HP < 0)
 					{
-						ComHP = 0;
+						pEnemy->C_HP = 0;
 					}
-					printf(" 남은 HP\n User : %d\nCom : %d\n",UserHP,ComHP);
-					if (ComHP <= 0)
+					printf(" 남은 HP\n User : %d\nCom : %d\n",UserHP, pEnemy->C_HP);
+					if (pEnemy->C_HP <= 0)
 					{
-						printf(" 적을 처치하였습니다.!!\n승리!!!\n");
-						
+						printf(" 적을 처치하였습니다.!!\n보상으로 %d Gold 획득!!\n", pEnemy->C_Gold);
+						Wallet += pEnemy->C_Gold;
+						printf("소지금 : %d Gold\n", Wallet);						
 						break;
 					}
 				}
 				else if (Critical == 2)
 				{
 					AttackDamage = (rand() % 11) + 5;
-					CriticalAttack = AttackDamage * 2;
-					printf("적의 크리티컬 히트!! %d 데미지를 받았습니다. \n", CriticalAttack);
-					UserHP -= CriticalAttack;
+					
+					printf("적의 크리티컬 히트!! %d 데미지를 받았습니다. \n", pEnemy->C_Attack * 2);
+					UserHP -= pEnemy->C_Attack * 2;;
 					if (UserHP < 0)
 					{
 						UserHP = 0;
 					}
-					printf(" 남은 HP\n User : %d\nCom : %d\n", UserHP, ComHP);
+					printf(" 남은 HP\n User : %d\nCom : %d\n", UserHP, pEnemy->C_HP);
 					if (UserHP <= 0)
 					{
 						printf(" You Died!!\n");						
@@ -472,29 +479,30 @@ void RPG(int& UserHP)
 				else
 				{
 					printf("적을 공격하였습니다.%d 데미지 \n", AttackDamage);
-					ComHP -= AttackDamage;
-					AttackDamage = (rand() % 11) + 5;
-					printf("적이 공격하였습니다.%d 데미지 \n", AttackDamage);
-					UserHP -= AttackDamage;
+					pEnemy->C_HP -= AttackDamage;
+					
+					printf("적이 공격하였습니다.%d 데미지 \n", pEnemy->C_Attack);
+					UserHP -= pEnemy->C_Attack;
 					if (UserHP < 0)
 					{
 						UserHP = 0;
 					}
-					if (ComHP < 0)
+					if (pEnemy->C_HP < 0)
 					{
-						ComHP = 0;
+						pEnemy->C_HP = 0;
 					}
-					printf(" 남은 HP\n User : %d\nCom : %d\n", UserHP, ComHP);
+					printf(" 남은 HP\n User : %d\nCom : %d\n", UserHP, pEnemy->C_HP);
 					if (UserHP <= 0)
 					{
 						printf(" You Died!!\n");
 						break;
 						
 					}
-					else if (ComHP <= 0)
+					else if (pEnemy->C_HP <= 0)
 					{
-						printf("적을 처치하였습니다.!!\n승리!!!\n");
-						
+						printf(" 적을 처치하였습니다.!!\n보상으로 %d Gold 획득!!\n", pEnemy->C_Gold);
+						Wallet += pEnemy->C_Gold;
+						printf("소지금 : %d Gold\n", Wallet);
 						break;
 					}
 				}
@@ -507,7 +515,8 @@ void RPG(int& UserHP)
 		
 	}
 
-
+	delete pEnemy;
+	pEnemy = nullptr;
 }
 
 
