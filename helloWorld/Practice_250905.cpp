@@ -431,7 +431,7 @@ void RPG(int& UserHP , int& Wallet)
 	while (true)
 	{		
 		int AttackDamage = (rand() % 11) + 5;
-		int Critical = (rand() % 10) + 1;
+		int CriticalChace = (rand() % 10) + 1;
 		int Attack = 0;
 		int CriticalAttack = 0;
 		printf(" 1번 공격, 2번 도망 \n");
@@ -440,7 +440,7 @@ void RPG(int& UserHP , int& Wallet)
 
 			if (Attack == 1)
 			{
-				if (Critical == 1)
+				if (CriticalChace == 1)
 				{
 					CriticalAttack = AttackDamage * 2;
 					printf("크리티컬 히트!! %d 데미지를 주었습니다. \n", CriticalAttack);
@@ -458,7 +458,7 @@ void RPG(int& UserHP , int& Wallet)
 						break;
 					}
 				}
-				else if (Critical == 2)
+				else if (CriticalChace == 2)
 				{
 					AttackDamage = (rand() % 11) + 5;
 					

@@ -132,6 +132,7 @@
     <ClCompile Include="Practice_250911.cpp" />
     <ClCompile Include="Practice_250912.cpp" />
     <ClCompile Include="TestMath.cpp" />
+    <ClCompile Include="WeekWork_0913.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header.h" />
@@ -141,6 +142,7 @@
     <ClInclude Include="Practice_250911.h" />
     <ClInclude Include="Practice_250912.h" />
     <ClInclude Include="TestMath.h" />
+    <ClInclude Include="WeekWork_0913.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
