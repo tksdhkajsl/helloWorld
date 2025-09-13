@@ -110,7 +110,7 @@ int PointGrade(int Point);
 
 void SlotMachine();
 
-void RPG();
+void RPG(int& UserHP, int& Wallet);
 
 void Card();
 
@@ -138,5 +138,8 @@ void Shuffle(int Array[], int Length);
 void Day0908_Dice();
 
 void BackArray(int Array[], int Length);
+//void BackArray(int* Array, int Length); 일반적으로 이렁게 사용하는 것이 보통
 
 void Lotto();
+
+void Pointer();

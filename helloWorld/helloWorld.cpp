@@ -29,7 +29,10 @@
  브랜치 분기
  변수는 사용하기 직전에 선언한다.
 */
+#define _CRTDBG_MAP_ALLOC
+#define new new(_NORMAL_BLOCK, __FILE__, __LINE__)
 #define _CRT_SECURE_NO_WARNINGS
+#include <crtdbg.h>
 #include <iostream> //입출력 관련
 #include <cstdio>  // stdio.h에 네임 스페이스 추가한 래퍼
 #include <stdio.h>
@@ -38,6 +41,11 @@
 #include <random>
 #include "TestMath.h"
 #include "Practice.h"
+#include "Practice_250909.h"
+#include "Practice_250910.h"
+#include "Practice_250911.h"
+#include "Practice_250912.h"
+#include "WeekWork_0913.h"
 #include <limits.h>
 
 //using namespace std;
@@ -96,8 +104,148 @@
 	/*
 	캐스팅(Casting)
 		- 하나의 타입을 다른 데이터 타입으로 변경하는 것
+	//a = (int)b;//b를 int로 캐스팅해서 a에 대입한다.(C스타일 명시적 캐스팅)
+	//a = b;	//b를 a에 대입한다. 그런데 a와 b는 타입이 다르니까 b를 a로 임시적으로 캐스팅 대입(암시적 캐스팅)
+	//b = a; //암시적 캐스팅은 대체로 표현이 작은 쪽에서 큰쪽으로는 문제없는 경우가 많다.
+
+	////C++ 캐스팅
+	////static_cast : C스타일 캐스팅을 안전하게 만든 것. 컴파일 타임에 결정됨.
+	////dynamic_cast 클래스
+	////const_cast : const 속성 제거하거나 추가하는데 사용. 사용하지 않는 것이 권장. 오래된 코드에서 사용
+	////reinterpret_cast : C스타일 캐스팅에서 위험한 부분. 원래 타입의 구조를 무시하고 새 타입으로 해석하게 한다.
+
+	//a = static_cast<int>(b); //b를 int형으로 캐스팅해서 a에 대입(명시적 캐스팅 C++)
+	*/
+	/*		포인터(Pointer)
+			- 메모리 주소를 저장하는 데이터 타입
+			- 각 데이터 타입에 *만 붙이면 포인터 타입
+			ex)int* 인터저 포인터, float* , char*
+			-	주소 연산자(&) : 변수의 주소를 가져온다.
+					int i =10;
+					int* p = &i; i의 주소를 int* p에 대입해라.
+					int Numbers =1012;
+					(&Numbers;)
+			- 포인터 연산자
+			-	간접참조 연산자(*) : 포인터 변수가 가리키는 주소의 실제 값
+				int i = 20;
+				int* p = &i;
+				(*p) = 30;  i = 30;과 같다
+			-산술 연산자(+,-,++,--)
+			int i 30;
+			int* p = &i;
+			p = p + 1;  //예시로 p가 0x0004라고 했을 때 p + 1 값은 0x0008
+			double d = 10.5;
+			double* pD = &d;
+			pD += 1; //pD가 원래 0x0000이라 했을 때 pD +=1 는 0x0008
+			*/
+			//배열과 포인터 (기본적으로 같다)
+
+		/*int* p = nullptr;*/
+		//int *p2 = nullptr;
+		/*
+		C++의 메모리 영역(단순화된 버전)
+		-코드 영역 : 실행코드가 저장되는 공간
+
+		-데이터 영역 : 프로그램이 시작할 때부터 끝날때까지 유지되는 변수가 저장되는 공간
+
+		-힙 영역 : 램 그 자체 프로그램이 실행 중에 필요에 따라 직접 메모리를 할당 받고 사용하는 공간
+			- 운영체제가 관리하기 떄문에 힙을 할당 받는 행위는 느리다.
+			- 메모리를 할당 받았으면 사용 후 반드시 해제해야 한다.(메모리 릭(메모리 누수) 발생)
+		-스택 영역 : 함수가 호출 될 때마다 필요한 변수(지역 변수)가 저장되는 공간
+			- 함수가 끝나면 자동으로 정리
+		*/
+		/*
+		정적(static) : 프로그램 실행 전에 이미 결정난 것들
+		동적(Dynamic) : 프로그램 실행 중에 결정이 되는 것들
+		*/
+		/*
+		동적 할당Dynamic Allocatoin)
+			- 프로그램 실행 중(Runtime)에 메모리를 사용하기 위해 확보하는 행위
+			- 운영체제(OS)에게 요청함 -> 그래서 늦다.
+			- C 스타일
+				할당 : malloc
+				해제 : free
+				단순 메모리 블럭만 받는 형식(초기화 없음, 타입 안정성 없음, 생성자/소멸자 실행X)
+			- C++ 스타일
+			-	할당 : new
+			-	해제 : 일반 변수delete, 배열 delete[]
+				int* Data = new int(5); int 하나를 할당 받는데 주소가 가르키는 값은 5로 설정해라
+				delete Data;
+				Data = nullptr;
+				int* Array = new int[10]; int 10개짜리 배열을 만들어라
+				delete[] Array; 배열은 반드시 해당 식으로 해제 (delete Array; 배열의 1번째만 해제)
+				Array = nullptr;
+				특정 객체(Object)를 생성하는 방식(초기화가 있다. 타입 안정성이 있다/생성자와 소멸자가 있다.)
+			- 메모리 할당과 성능 문제
+				메모리 할당은  오래 걸린다.(컴퓨터 입장에서 느리다. 운영체제 메모리관리나 적절한 사이즈를 찾는데 시간이 걸림)
+				메모리 단편화 문제(메모리 할당 해제를 반복하다가 전체 빈공간은 충분한데. 연속된 빈공간이 부족해지는 현상)
+				CPU 캐시 히트 ,
+			-메모리 릭
+				할당한 메모리를 반환하지 않아 해당 영역을 사용하지 못하게 되는 현상
+
+
+		*/
+	/*문자열
+		- 글자 여러개를 모아 문장을 만들어 놓은 것
+		- C언어에서는 문자열을 표현하기 위해 char* 사용.(== char[])
+		- 항상 마지막 문자열은 Null 문자 \0으로 끝난다
+		- char*에는 아스키 코드가 기록된다.
+	
+	*/
+	/*
+	파싱(Parsing)
+		- 문자열을 분석해서 의미있는 정보로 변환하는 과정
 
 	*/
+	/*
+	구조체(Struct)
+		- 여러 종류의 데이터타입을 하나로 묶을 때 사용.
+		-	프로그램 코드의 가독성과 유지 보수성을 향상시켜 준다.
+		struct Enemy
+		{
+			std::string Name;
+			float Health;
+			float AttackPower;
+			int DropGold;
+		}
+
+		Enemy goblin; //적 하나에 대한 정보 만들기
+		Enemy goblin[3]; //적 3 마리에 대한 정보 만들기
+
+		- 구조체 동적 할당하는 법
+		Enemy* pGoblin = new Enemy(); // 새 적을 동적 할당 받음
+		delete pGoblin;					// 동적할당 받은 것 해제
+		pGoblin = nullptr;			
+		
+		- 구조체 데이터 접근법
+			- 일반적인 경우 점(.) 연산자 사용
+		goblin.Name = "고블린";
+		goblin.Health = 20;
+			- 포인터 변수인 경우 화살표(->) 연산자 사용
+		pGoblin->AttackPower = 5.0f;
+		pGoblin->DropGold = 10;
+
+		- 구조체의 생성자
+			- 객체가 만들어질 때 자동으로 호출되는 특별한 함수
+			- 객체
+			int i = 10; //하나의 인티저 객체 i 생성
+			int Array[3]; //인티저 객체 3개 생성
+			Enemy* pEnemy = new Enemy();	// Enemy 객체 하나가 만들어짐
+
+			- 맴버 변수 초기화에 사용(값을 계산하거나 변경해서 넣을 때 좋음)
+			- 일반 함수와 다른 특징
+				1. 이름이 구조체 이름과 같아야 함.
+				2. 리턴 타입 X
+				3. 객체가 만들어질 때 자동으로 호출됨.
+				4. 생성자가 여러개 있을 수도 있다.
+				5. 없으면 기본 생성자가 자동으로 만들어진다.(무조건 하나는 있다.)
+
+
+		- 구조체의 명령어 오버로딩(덮어쓰기)
+			- 
+	*/
+
+
 int main() //엔트리 포인트 : 코드가 시작되는 곳
 {
 	/*Practice0905_01();
@@ -193,12 +341,24 @@ int main() //엔트리 포인트 : 코드가 시작되는 곳
 		- 참조를 변경할 경우 원본 변수고 함께 수정이 된다. -> 함수 파라메터로 사용하면 편리
 		- 참조는 항상 어떤 변수와 연결되어 있어야 함.
 		함수 파라메터에 참조를 사용할 때
-			-파라메터 값을 수정하는 출력용 파라메터일 경우 out이라는 접두사를 붙이는 것이 관례
-			= 파라메터 값을 읽기만 하는 경우에는 const 붙여줘서 실수로라도 고쳐지지 않게 한다.
+			-파라메터 값을 수정하는 출력용 파라메터일 경우 out이라는 접두사
+			= 파라메터 값을 읽기만 하는 경우에는 const
 	*/
 
-	RPG();
+	
+	//Day0912_OperatorOverloading();
+	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 
+	//Day0909_DynamicAllocation();
+	
+	//Day0909_Example();
+
+	//MazeEscapeRun();
+	Play();
+	//HighRow();
+	//Day0910_String();
+	//Day0911();Date
+	//Day0912_Struct();
 	return 0;
 
 }
