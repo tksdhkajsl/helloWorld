@@ -153,23 +153,23 @@ void PrintEnemy(const Enemy* pEnemy);	// pEnemy는 읽기 전용
 //Position sum = p1 + p2;   // sum.x == 7, sum.y == 4
 //Position diff = p1 - p2;  // diff.x == -3, diff.y == 2
 
-struct Position
-{
-	int x = 0;
-	int y = 0;
-	Position(int _x, int _y) : x(_x), y(_y) {}
+//struct Position
+//{
+//	int x = 0;
+//	int y = 0;
+//	Position(int _x, int _y) : x(_x), y(_y) {}
+//
+//
+//	Position operator+(const Position& other)
+//	{
+//		return Position(x + other.x, y + other.y);
+//	}
+//	Position operator-(const Position& other)
+//	{
+//		return Position(x - other.x, y - other.y);
+//	}
 
-
-	Position operator+(const Position& other)
-	{
-		return Position(x + other.x, y + other.y);
-	}
-	Position operator-(const Position& other)
-	{
-		return Position(x - other.x, y - other.y);
-	}
-
-};
+//};
 
 //9 _12 심화문제
 //1. 변경된 미로 탈출 게임에 기능 추가하기

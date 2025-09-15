@@ -1,20 +1,18 @@
 
-
 #include <fstream>
 #include <stdio.h>
 #include <iostream>
-
 #include <string>
 #include "Practice_250910.h"
 #include "Practice_250911.h"
 #include "Practice_250909.h"
 #include "Practice_250912.h"
 #include "WeekWork_0913.h"
-
-//1. ##요일 구하기
-//1년 1월 1일(월요일)을 기준으로 입력한 날짜까지 며칠이 지났는지 계산한 후, 7로 나눈 나머지로 요일을 구하기.
-//윤년도 올바르게 처리할 것
-//입력받은 연, 월, 일을 기준으로 요일을 출력.
+//
+////1. ##요일 구하기
+////1년 1월 1일(월요일)을 기준으로 입력한 날짜까지 며칠이 지났는지 계산한 후, 7로 나눈 나머지로 요일을 구하기.
+////윤년도 올바르게 처리할 것
+////입력받은 연, 월, 일을 기준으로 요일을 출력.
 int LeapYear(int Year)
 {
 	if ((Year != 0) && (Year % 4) == 0 && ((Year % 400) == 0 || (Year % 100) != 0))
@@ -30,12 +28,13 @@ int LeapYear(int Year)
 
 void Date(int Year, int Month, int Day)
 {
-	const char* Days[7] = { "일요일","월요일","화요일","수요일","목요일","금요일","토요일" };
+	const char* Days[7] = { "일요일", "월요일","화요일","수요일","목요일","금요일","토요일" };
 	int Months[12] = { 31,28,31,30,31,30,31,31,30,31,30,31 };
 	int Index = 0;
 	int Count = 0;
 	int SumDay = 0;
 
+	//종합일수
 	while (Count != Year)
 	{
 		Count++;
@@ -60,10 +59,11 @@ void Date(int Year, int Month, int Day)
 	{
 		SumDay += Day + Index - 1;
 	}
-	printf("%d년 %d월 %d일은 %s 입니다.", Year, Month, Days[SumDay & 7]);
+	
+	printf("%d년 %d월 %d일은 %s 입니다.", Year, Month, Day, Days[SumDay & 7]);
 }
 
-
+//
 //##블랙잭 게임 만들기
 //게임 목표
 //두 카드의 합이 21에 가깝게 만들되, 21을 넘지 않는 것이 목표
@@ -98,47 +98,56 @@ void Date(int Year, int Month, int Day)
 //버스트가 아닌 경우, 점수 비교.
 //플레이어가 21에 더 가까우면 승리.
 //동점이면 무승부(Push).
-//딜러가 더 가까우면 패배.
+//딜러가 더 가까우면 패배.♠♣◆♥
 //블랙잭: 처음 받은 두 장이 A + 10(또는 J, Q, K)이면 블랙잭.일반적으로 블랙잭이 단순 21점보다 우선함.
-
+//
 std::string SPADE = "♠";
 std::string CLUB = "♣";
 std::string DIA = "◆";
 std::string HEART = "♥";
 const int AI = 17;
 
-enum Shape { Spade, Club, Dia, Heart };
-enum Num { Ace = 1, Jack = 11, Queen = 12, King = 13 };
+enum Shape 
+ { Spade,
+	 Club,
+	 Dia,
+	 Heart };
+ 
+enum Num 
+ { Ace = 1,
+ Jack = 11,
+ Queen = 12,
+ King = 13 };
 
 
 
 //모든카드
 Card CardAll[52];
 CPlayer P[2];
-int Next;
+int Next = 0;
 void Shuffle()
 {
-	srand(time(0));
-	for (int i = 0; i < 52; i++)
+	
+	for (int i = 51; i > 0; i--)
 	{
-		int index = rand() % 52;
-		Card temp = CardAll[index];
-		CardAll[index] = CardAll[i];
+		int Index = rand() % (i + 1);
+		Card temp = CardAll[Index];
+		CardAll[Index] = CardAll[i];
 		CardAll[i] = temp;
 	}
 }
 
 void FillDeck()
 {
-	int i = 0;
+	int Index = 0;
 	// 4개의 모양과 13개의 숫자를 짝지어서 카드 만듦
 	for (int j = 0; j < 4; j++)
 	{
 		for (int k = 1; k < 14; k++)
 		{
-			CardAll[i].Number = k;
-			CardAll[i].Shape = j;
-			i++;
+			CardAll[Index].Number = k;
+			CardAll[Index].Shape = j;
+			Index++;
 		}
 	}
 }
@@ -151,28 +160,28 @@ Card Deal(int Next)
 	return CardAll[Next];
 }
 
-void PrintCard(int Num, int Turns)
+void PrintCard(int Point, int Turns)
 {
 	int AceScore = 0;
 
 	printf("-------\n");
 
-	switch (P[Num].Card_Player[Turns].Shape)
+	switch (P[Point].Card_Player[Turns].Shape)
 	{
 	case Spade:
-		printf("|%s    |\n", SPADE);
+		printf("|%s    |\n", SPADE.c_str());
 		break;
 	case Club:
-		printf("|%s    |\n", CLUB);
+		printf("|%s    |\n", CLUB.c_str());
 		break;
 	case Dia:
-		printf("|%s    |\n", DIA);
+		printf("|%s    |\n", DIA.c_str());
 		break;
 	case Heart:
-		printf("|%s    |\n", HEART);
+		printf("|%s    |\n", HEART.c_str());
 		break;
 	}
-	switch (P[Num].Card_Player[Turns].Number)
+	switch (P[Point].Card_Player[Turns].Number)
 	{
 	case Ace:
 		printf("|  A  |\n");
@@ -180,35 +189,35 @@ void PrintCard(int Num, int Turns)
 		break;
 	case Jack:
 		printf("|  J  |\n");
-		P[Num].Score += 10;
+		P[Point].Score += 10;
 		break;
 	case Queen:
 		printf("|  Q  |\n");
-		P[Num].Score += 10;
+		P[Point].Score += 10;
 		break;
 	case King:
 		printf("|  K  |\n");
-		P[Num].Score += 10;
+		P[Point].Score += 10;
 		break;
 	default:
-		printf("| %2d  |\n", P[Num].Card_Player[Turns].Number);
-		P[Num].Score += P[Num].Card_Player[Turns].Number;
+		printf("| %2d  |\n", P[Point].Card_Player[Turns].Number);
+		P[Point].Score += P[Point].Card_Player[Turns].Number;
 		break;
 	}
 
-	switch (P[Num].Card_Player[Turns].Shape)
+	switch (P[Point].Card_Player[Turns].Shape)
 	{
 	case Spade:
-		printf("|    %s|\n", SPADE);
+		printf("|    %s|\n", SPADE.c_str());
 		break;
 	case Club:
-		printf("|    %s|\n", CLUB);
+		printf("|    %s|\n", CLUB.c_str());
 		break;
 	case Dia:
-		printf("|    %s|\n", DIA);
+		printf("|    %s|\n", DIA.c_str());
 		break;
 	case Heart:
-		printf("|    %s|\n", HEART);
+		printf("|    %s|\n", HEART.c_str());
 		break;
 	}
 
@@ -218,11 +227,11 @@ void PrintCard(int Num, int Turns)
 		if (AceScore == -1)
 		{
 			printf("ACE가 나왔네요, [1/11]점으로 계산합니다: ");
-			scanf("%d", &AceScore);
-			P[Num].Score += AceScore;
+			std::cin >> AceScore;
+			P[Point].Score += AceScore;
 		}
 
-	printf("score : %d\n", P[Num].Score);
+	printf("score : %d\n", P[Point].Score);
 
 	return;
 }
@@ -233,12 +242,12 @@ int Betting(CPlayer P)
 	int Bet;
 
 	printf("돈을 걸어봅시다! %d 중 얼마를 배팅하시겠습니까? ", P.Cash);
-	scanf("%d", &Bet);
+	std::cin >> Bet;
 
 	if (Bet > P.Cash)
 	{
 		printf("이런이런... 돈이 부족하군요. 조금만 아껴야겠어요. 다시 입력 : ");
-		scanf("%d", &Bet);
+		std::cin >> Bet;
 		return Bet;
 	}
 	else return Bet;
@@ -246,27 +255,27 @@ int Betting(CPlayer P)
 // 게임을 시작
 void StayorHit(int Play, int Turns)
 {
-	char Answer;
+	int Answer = 0;
 
-	printf("\n##########TURN : PLAYER%d님##########\n\n", Play);
+	printf("\n##########TURN : PLAYER님##########\n\n");
 	while (P[Play].Score < 21)
 	{
-		printf("HIT을 원하시면 h를, STAY를 원하시면 s를 입력하세요[h/s]: ");
-		scanf(" %c", &Answer);
+		printf("HIT을 원하시면 1를, STAY를 원하시면 2를 입력하세요 : ");
+		std::cin >> Answer;
 
-		if (Answer == 'h' || Answer == 'H')
+		if (Answer == 1)
 		{
 			Turns++;
 			P[Play].Card_Player[Turns] = Deal(Next++);
 			PrintCard(Play, Turns);
 		}
-		else if (Answer == 's' || Answer == 'S')
+		else if (Answer == 2)
 		{
 			break;
 		}
 		else
 		{
-			printf("HIT이면 h, STAY면 s라니까요.\n다시,");
+			printf("HIT이면 1, STAY면 2입니다.\n재선택 : ");
 		}
 	}
 
@@ -282,13 +291,13 @@ void StayorHit(int Play, int Turns)
 }
 
 
-// 딜러는 지능적으로 16까지만 안전하게 여기고 hit
+// 딜러는 AI 17이면 stay
 void Dealer(int Turns)
 {
 	printf("\n##########DEALER's TURN##########\n\n");
 	while (P[0].Score < 21)
 	{
-		if (P[0].Score < AI)
+		if (P[0].Score <= AI)
 		{
 			Turns++;
 			P[0].Card_Player[Turns] = Deal(Next++);
@@ -310,17 +319,18 @@ void Play()
 
 	while (Goon)
 	{
-		int Winner, Winnerscore = -1;
+		int Winner = -1;
+		int	Winnerscore = -1;
 		int Bet[3]; Bet[0] = 10;
 		PushFlag = 0;
 
 		if (Push == 0) BetTotal = 0;
 
-		// 두명 다 확인
+		//  자금 확인
 		if (P[1].Cash <= 0)
 		{
-			printf("!!! PLAYER1 파산하셨습니다. 100 다시 충전\n\n");
-			P[1].Cash += 100;
+			printf("!!! PLAYER1 파산하셨습니다. 게임종료!!\n\n");
+			break;
 		}
 		
 		
@@ -396,11 +406,11 @@ void Play()
 
 		printf("\n결과>> P1 CASH : %d \n", P[1].Cash);
 
-		char answer;
+		int answer;
 		printf("계속하시겠습니까? ");
-		std::cin>> &answer;
+		std::cin>> answer;
 
-		if (answer == 'y' || answer == 'Y')
+		if (answer == 1)
 		{
 			continue;
 		}

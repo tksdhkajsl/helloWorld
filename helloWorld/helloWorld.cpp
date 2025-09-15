@@ -39,13 +39,17 @@
 #include "header.h"
 #include <time.h>
 #include <random>
+//#include "Position.h"
+//#include "BlackJack.h"
 #include "TestMath.h"
 #include "Practice.h"
 #include "Practice_250909.h"
 #include "Practice_250910.h"
 #include "Practice_250911.h"
 #include "Practice_250912.h"
+#include "Practice_250915.h"
 #include "WeekWork_0913.h"
+#include <fstream>
 #include <limits.h>
 
 //using namespace std;
@@ -354,11 +358,31 @@ int main() //엔트리 포인트 : 코드가 시작되는 곳
 	//Day0909_Example();
 
 	//MazeEscapeRun();
-	Play();
+	//Date(2,1,1);
 	//HighRow();
 	//Day0910_String();
 	//Day0911();Date
 	//Day0912_Struct();
+
+	/*Position pos(1, 2);
+	Position* pPos = new Position(2, 3);
+
+	delete pPos;
+	pPos = nullptr;*/
+	//Position posA(1, 2);
+	//Position posB(3, -1);
+	//Position posC = posA + posB;
+	//Position posD = posA - posB;
+
+	//int i = 0;
+	////Position pos2;
+	//Position pos2 = Position();
+	//Day0915_WeekPracticeTest();
+	//Day0915_WeekPracticeBlackJackTest();
+	srand(time(0));
+	//PlayBlackjack();
+	//Play();
+	Date(2024,9,15);
 	return 0;
 
 }

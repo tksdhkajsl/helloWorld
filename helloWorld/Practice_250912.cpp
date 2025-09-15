@@ -101,8 +101,8 @@ void Day0912_OperatorOverloading()
 	FusionGoblin = Goblin1 *= Goblin2;
 	PrintEnemy(&FusionGoblin);
 
-	Position p1(2, 3);
-	Position p2(5, 1);
+	//Position p1(2, 3);
+	//Position p2(5, 1);
 }
 
 void PrintEnemy(const Enemy* pEnemy)

@@ -123,24 +123,34 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BlackJack.cpp" />
     <ClCompile Include="header.cpp" />
     <ClCompile Include="helloWorld.cpp" />
+    <ClCompile Include="MazeGame.cpp" />
+    <ClCompile Include="Position.cpp" />
     <ClCompile Include="Practice_250905.cpp" />
     <ClCompile Include="Practice_250908.cpp" />
     <ClCompile Include="Practice_250909.cpp" />
     <ClCompile Include="Practice_250910.cpp" />
     <ClCompile Include="Practice_250911.cpp" />
     <ClCompile Include="Practice_250912.cpp" />
+    <ClCompile Include="Practice_250915.cpp" />
     <ClCompile Include="TestMath.cpp" />
     <ClCompile Include="WeekWork_0913.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BlackJack.h" />
+    <ClInclude Include="EnemyData.h" />
     <ClInclude Include="header.h" />
+    <ClInclude Include="MazeEscape.h" />
+    <ClInclude Include="PlayerData.h" />
+    <ClInclude Include="Position.h" />
     <ClInclude Include="Practice.h" />
     <ClInclude Include="Practice_250909.h" />
     <ClInclude Include="Practice_250910.h" />
     <ClInclude Include="Practice_250911.h" />
     <ClInclude Include="Practice_250912.h" />
+    <ClInclude Include="Practice_250915.h" />
     <ClInclude Include="TestMath.h" />
     <ClInclude Include="WeekWork_0913.h" />
   </ItemGroup>
