@@ -51,6 +51,8 @@
 #include "WeekWork_0913.h"
 #include <fstream>
 #include <limits.h>
+#include "Day_250916.h"
+#include "Car.h"
 
 //using namespace std;
 //
@@ -248,107 +250,141 @@
 		- 구조체의 명령어 오버로딩(덮어쓰기)
 			- 
 	*/
+	/*Practice0905_01();
+		Practice0905_02();*/
+
+		/*float Value = Clamp(5.2f, 7.3f, 8.0f);
+		printf("%.2f", Value);*/
+		/*DiceResult();
+
+		PointGrade(88);
 
 
+		int Value = SalePrice(43000,50);
+		printf("%d", Value);*/
+		//int a = 10;
+		//int Array[5]; //int 5개를 관리하는 배열
+		//Array[0] = 10; //배열의 첫 번째 요소에 10을 대입한다.
+		//Array[3] = 40; //배열의 4 번째 요소에 40을 대입한다.
+
+		//int Array2[5] = { 1,2,3,4,5 };
+		//int Array3[5] = { 1,2,3 };
+
+		//int Array4[5] = {};
+		//const int Size = 5;
+		//int Array5[Size] = {};
+		//sizeof(Array5); //Array5의 전체 바이트 크기를 알수 있다.
+		//sizeof(Array5[0]); //Array5의 요소 하나의 크기를 알 수 있다.
+		//int ElementCount = sizeof(Array5) / sizeof(Array5[0]); //배열 요소의 개수
+		//int Size2 = 5;
+		// int Array6[Size2] = {}; 배열 선언할 때 크기를 변수로 지정할 수 없다.
+		//Array[5] = 60; //원래는 터짐 버퍼오버런 ,배열 영역 밖을 접근하려고 하기 때문에 에러 발생 //키워드 문법적으로 이미 정해진 것
+		// 간단 실습
+		//1. 배열을 만들고 초기화 해보기
+		//int Numbers[3] = { 23,4,5 };
+
+		////2. 배열의 모든 요소의 값을 더하고 평균 구하기
+		//int Array[5] = { 1,2,3,4,5 };
+		//float ArrayAverage = 0.0f;
+		//int ArraySum = 0;
+		//int ArrayCount = static_cast<int>(sizeof(Numbers) / sizeof(Numbers[0]));
+		//for (int i = 0; i <ArrayCount; i++)
+		//{
+		//	ArraySum += Numbers[i];		
+		//}
+		//ArrayAverage = ArraySum/static_cast<float>(ArrayCount);
+		//printf("배열의 모든 요소 더한 값은 %d 이고 평균은 %.2f이다.\n", ArraySum, ArrayAverage);
+		////3. 배열의 모든 요소 중 최대값과 최소값 구하기
+		//int MaxNumber = INT_MIN;
+		//int MinNumber = INT_MAX;
+		//for (int i = 0; i < ArrayCount; i++)
+		//{
+		//	if (MaxNumber < Numbers[i])
+		//	{
+
+		//		MaxNumber = Numbers[i];
+		//	}
+		//	if (MinNumber > Numbers[i])
+		//	{
+		//		MinNumber = Numbers[i];
+		//	}
+		//}
+
+		/*
+		이차원 배열
+			- 배열을 이차원으로 표현한 것
+			- int Array[4][3] = { {1,2,3},{4,5,6},{7,8,9},{0,1,2} };
+			int 3개 짜리 배열이 4줄 들어있다.
+			사실 int Array[12] 랑 메모리 구조가 같다.
+		*/
+		//int Array7[4][3] = { {1,2,3},{4,5,6},{7,8,9},{0,1,2} };
+		//int test = Array7[1][2]; //test = 6
+		//int Array8[12] = { 1,2,3,4,5,6,7,8,9,0,1,2 };
+
+		/*int Array9[9] = { 1,2,3,4,5,6,7,8,9 };
+		BackArray(Array9,9);*/
+
+
+		/*
+		피셔-에이츠 알고리즘
+			- 배역의 내용을 랜덤하게 겄는 셔플 알고리즘
+			- 동일한 확률로 섞이도록 증명 완료된 알고리즘
+
+			- 알고리즘 순서
+				1. 배역의 마지막 요소에서 첫 요소까지 순회
+				2. 현재 요소의 인덱스(I)와 0 ~ i 중 임의의 인덱스(j)를 선택한다.
+				3. i번째 와 j번째 요소를 서로 교환
+				4. i가 0이 될 때까지 반복
+		*/
+		/*Day0908_Dice();*/
+		/*
+		참조(Referance)
+			- 변수에 별명
+			- 참조를 변경할 경우 원본 변수고 함께 수정이 된다. -> 함수 파라메터로 사용하면 편리
+			- 참조는 항상 어떤 변수와 연결되어 있어야 함.
+			함수 파라메터에 참조를 사용할 때
+				-파라메터 값을 수정하는 출력용 파라메터일 경우 out이라는 접두사
+				= 파라메터 값을 읽기만 하는 경우에는 const
+		*/
+
+//객체지향
+/*	- 객체(Object) : 게임 상에 존재하는 모든 것
+*	- 객체지향 : 객체를 중심으로 프로그램을 설계하는 것
+*	- 클래스(Class) : 객체를 만들기 위한 설계도 
+		객체가 가져야 할 상태(데이터)와 동작(기능)을 하나로 묶어 놓은 것
+	- 객체지향의 4대 특성
+		- 추상화
+			- 불필요한 세부 사항은 숨기고, 핵심적인 부분만 보여주는 것
+			- 코드의 복잡성을 낮춘다.(이해하기 쉽다.)
+		- 캡슐화
+			- 접근 제한자를 통한 데이터의 접근제어
+			- 몰라도 되는 것은 안보여야 한다.(데이터를 보호하고 코드의 안정성을 높이고 결합도도 낮춘다)
+		- 상속
+			- 부모 클래스(기본)의 데이터와 기능을 물려받은 자식 클래스(파생)를 만드는 것
+			- 코드의 재사용성을 높이고 계층 구조를 형성한다.
+		- 다형성
+			- 동일한 인터페이스를 통해 다양한 처리를 하는 것
+			- 가상 함수의 오버라이드를 통한 다형성 구현
+* 
+
+*/
+//클래스
+/*
+	- 객체를 만들기 위한 설계도
+	- 객체가 가지게 될 상태와 동작을 하나로 묶어 놓은 것
+	- 인스턴스 : 클래스를 기반으로 실제 메모리에 만들어진 실체(new 하는 것)
+	- 구성요소
+		- 생성자 : 구조체와 같음. 객체를 생성했을 때 자동 호출되는 특별한  함수
+		- 소멸자 : 구조체나 객체가 해제될 때 자동으로 호출되는 특별한 함수
+			- 객체가 사용하던 자원을 깨끗이 정리하는 역할
+			- 클래스 내부에서 동적할당한 메모리를 해제하는데 주로 사용(메모리 릭 방지)
+		- 맴버 변수 : 객체의 상태나 데이터를 저장하는 변수 (속성 ,필드라고도 함)
+		- 맴버 함수 : 객체가 할 수 있는 동작이나 기능을 정의한 함수(메소드 method)
+
+*/
 int main() //엔트리 포인트 : 코드가 시작되는 곳
 {
-	/*Practice0905_01();
-	Practice0905_02();*/
 	
-	/*float Value = Clamp(5.2f, 7.3f, 8.0f);
-	printf("%.2f", Value);*/
-	/*DiceResult();
-
-	PointGrade(88);
-	
-
-	int Value = SalePrice(43000,50);
-	printf("%d", Value);*/
-	//int a = 10;
-	//int Array[5]; //int 5개를 관리하는 배열
-	//Array[0] = 10; //배열의 첫 번째 요소에 10을 대입한다.
-	//Array[3] = 40; //배열의 4 번째 요소에 40을 대입한다.
-
-	//int Array2[5] = { 1,2,3,4,5 };
-	//int Array3[5] = { 1,2,3 };
-
-	//int Array4[5] = {};
-	//const int Size = 5;
-	//int Array5[Size] = {};
-	//sizeof(Array5); //Array5의 전체 바이트 크기를 알수 있다.
-	//sizeof(Array5[0]); //Array5의 요소 하나의 크기를 알 수 있다.
-	//int ElementCount = sizeof(Array5) / sizeof(Array5[0]); //배열 요소의 개수
-	//int Size2 = 5;
-	// int Array6[Size2] = {}; 배열 선언할 때 크기를 변수로 지정할 수 없다.
-	//Array[5] = 60; //원래는 터짐 버퍼오버런 ,배열 영역 밖을 접근하려고 하기 때문에 에러 발생 //키워드 문법적으로 이미 정해진 것
-	// 간단 실습
-	//1. 배열을 만들고 초기화 해보기
-	//int Numbers[3] = { 23,4,5 };
-
-	////2. 배열의 모든 요소의 값을 더하고 평균 구하기
-	//int Array[5] = { 1,2,3,4,5 };
-	//float ArrayAverage = 0.0f;
-	//int ArraySum = 0;
-	//int ArrayCount = static_cast<int>(sizeof(Numbers) / sizeof(Numbers[0]));
-	//for (int i = 0; i <ArrayCount; i++)
-	//{
-	//	ArraySum += Numbers[i];		
-	//}
-	//ArrayAverage = ArraySum/static_cast<float>(ArrayCount);
-	//printf("배열의 모든 요소 더한 값은 %d 이고 평균은 %.2f이다.\n", ArraySum, ArrayAverage);
-	////3. 배열의 모든 요소 중 최대값과 최소값 구하기
-	//int MaxNumber = INT_MIN;
-	//int MinNumber = INT_MAX;
-	//for (int i = 0; i < ArrayCount; i++)
-	//{
-	//	if (MaxNumber < Numbers[i])
-	//	{
-
-	//		MaxNumber = Numbers[i];
-	//	}
-	//	if (MinNumber > Numbers[i])
-	//	{
-	//		MinNumber = Numbers[i];
-	//	}
-	//}
-
-	/*
-	이차원 배열 
-		- 배열을 이차원으로 표현한 것
-		- int Array[4][3] = { {1,2,3},{4,5,6},{7,8,9},{0,1,2} };
-		int 3개 짜리 배열이 4줄 들어있다.
-		사실 int Array[12] 랑 메모리 구조가 같다.
-	*/
-	//int Array7[4][3] = { {1,2,3},{4,5,6},{7,8,9},{0,1,2} };
-	//int test = Array7[1][2]; //test = 6
-	//int Array8[12] = { 1,2,3,4,5,6,7,8,9,0,1,2 };
-	
-	/*int Array9[9] = { 1,2,3,4,5,6,7,8,9 };
-	BackArray(Array9,9);*/
-	
-
-	/*
-	피셔-에이츠 알고리즘
-		- 배역의 내용을 랜덤하게 겄는 셔플 알고리즘
-		- 동일한 확률로 섞이도록 증명 완료된 알고리즘
-
-		- 알고리즘 순서
-			1. 배역의 마지막 요소에서 첫 요소까지 순회
-			2. 현재 요소의 인덱스(I)와 0 ~ i 중 임의의 인덱스(j)를 선택한다.
-			3. i번째 와 j번째 요소를 서로 교환
-			4. i가 0이 될 때까지 반복
-	*/
-	/*Day0908_Dice();*/
-	/*
-	참조(Referance)
-		- 변수에 별명
-		- 참조를 변경할 경우 원본 변수고 함께 수정이 된다. -> 함수 파라메터로 사용하면 편리
-		- 참조는 항상 어떤 변수와 연결되어 있어야 함.
-		함수 파라메터에 참조를 사용할 때
-			-파라메터 값을 수정하는 출력용 파라메터일 경우 out이라는 접두사
-			= 파라메터 값을 읽기만 하는 경우에는 const
-	*/
-
 	
 	//Day0912_OperatorOverloading();
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
@@ -379,10 +415,15 @@ int main() //엔트리 포인트 : 코드가 시작되는 곳
 	//Position pos2 = Position();
 	//Day0915_WeekPracticeTest();
 	//Day0915_WeekPracticeBlackJackTest();
-	srand(time(0));
+	//srand(time(0));
 	//PlayBlackjack();
 	//Play();
-	Date(2024,9,15);
+	
+
+	Day_250916 day_250916;
+	//day_250916.ClassInstance();
+	day_250916.AnimalTest();
+
 	return 0;
 
 }
