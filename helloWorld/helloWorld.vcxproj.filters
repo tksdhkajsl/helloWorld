@@ -16,6 +16,15 @@
     <Filter Include="프로젝트">
       <UniqueIdentifier>{4b68bf76-1e73-4f65-98c3-c9f6d896548a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Animal">
+      <UniqueIdentifier>{3e38870e-2883-4530-a7c6-be3b4394efd6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game">
+      <UniqueIdentifier>{b82757e7-4d3e-42e7-9e8e-58fdbce8d1bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="모양">
+      <UniqueIdentifier>{a85c5894-bddd-4cc2-bc81-e110ee07ec55}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="helloWorld.cpp">
@@ -67,7 +76,37 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Animal.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>Animal</Filter>
+    </ClCompile>
+    <ClCompile Include="Tiger.cpp">
+      <Filter>Animal</Filter>
+    </ClCompile>
+    <ClCompile Include="GameManager.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Monster.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Monsters.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Actor.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Hawk.cpp">
+      <Filter>Animal</Filter>
+    </ClCompile>
+    <ClCompile Include="Day0917.cpp">
+      <Filter>Animal</Filter>
+    </ClCompile>
+    <ClCompile Include="Dog.cpp">
+      <Filter>Animal</Filter>
+    </ClCompile>
+    <ClCompile Include="Shape.cpp">
+      <Filter>모양</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -119,8 +158,50 @@
     <ClInclude Include="Car.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Tiger.h">
+      <Filter>Animal</Filter>
+    </ClInclude>
+    <ClInclude Include="GameManager.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Monster.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Monsters.h">
+      <Filter>Game</Filter>
+    </ClInclude>
     <ClInclude Include="Animal.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>Animal</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Actor.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Hawk.h">
+      <Filter>Animal</Filter>
+    </ClInclude>
+    <ClInclude Include="TestSample.h">
+      <Filter>Animal</Filter>
+    </ClInclude>
+    <ClInclude Include="Day0917.h">
+      <Filter>Animal</Filter>
+    </ClInclude>
+    <ClInclude Include="Dog.h">
+      <Filter>Animal</Filter>
+    </ClInclude>
+    <ClInclude Include="Shape.h">
+      <Filter>모양</Filter>
+    </ClInclude>
+    <ClInclude Include="IFlyable.h">
+      <Filter>Animal</Filter>
+    </ClInclude>
+    <ClInclude Include="ISwim.h">
+      <Filter>Animal</Filter>
+    </ClInclude>
+    <ClInclude Include="ICanBattle.h">
+      <Filter>Animal</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

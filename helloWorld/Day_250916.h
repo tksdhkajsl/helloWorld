@@ -7,6 +7,10 @@ public:
 
 	void ClassInstance();
 	void AnimalTest();
+	void AnimalTiger();
+	void AnimalLion();
+	void AnimalWolf();
+	void AnimalRabbit();
 
 private:
 

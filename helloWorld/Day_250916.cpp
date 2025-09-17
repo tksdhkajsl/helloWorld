@@ -1,6 +1,7 @@
 #include "Day_250916.h"
 #include "Car.h"
 #include "Animal.h"
+#include "Tiger.h"
 
 //Day_250916::Day_250916()
 //{
@@ -33,27 +34,64 @@ void Day_250916::ClassInstance()
 //	동물은 먹으면(Eat) 에너지가 증가한다.
 //	동물은 잠을 자면(Sleep) 나이가 증가하고 에너지가 완전 회복된다.
 //	동물의 모든 정보를 출력할 수 있다.(ShoInfo)
-void Day_250916::AnimalTest()
-{
-	Animal myAni = Animal("토끼");
-	myAni.Power = 1;
-	myAni.Move();
-	myAni.MakeSound();
-	myAni.Eat();
-	myAni.Sleep();
-	myAni.ShoInfo();
-
-	Animal* pmyAni = new Animal("사자");
-	pmyAni->Power = 10;
-	pmyAni->Move();
-	pmyAni->MakeSound();
-	pmyAni->Attack();
-	pmyAni->Eat();
-	pmyAni->Sleep();
-	pmyAni->ShoInfo();
-	myAni.ShoInfo();
-
-	delete pmyAni;
-	pmyAni = nullptr;
-
-}
+//void Day_250916::AnimalTest()
+//{
+//	Animal myAni = Animal("토끼");
+//	
+//	myAni.Move();
+//	myAni.MakeSound();
+//	myAni.Eat();
+//	myAni.Sleep();
+//	myAni.ShowInfo();
+//
+//	Animal* pmyAni = new Animal("사자");
+//	
+//	pmyAni->Move();
+//	pmyAni->MakeSound();
+//	
+//	pmyAni->Eat();
+//	pmyAni->Sleep();
+//	pmyAni->ShowInfo();
+//	myAni.ShowInfo();
+//	int Age = myAni.GetAge();
+//	const std::string& Name = myAni.GetName();
+//	delete pmyAni;
+//	pmyAni = nullptr;
+//
+//}
+// 간단 실습
+// 다른 동물 만들어보기(3종류)
+// 다른 동물 전용 함수 구현하기
+//void Day_250916::AnimalTiger()
+//{
+//	Tiger tiger = Tiger("호식이");
+//	tiger.Move();
+//	tiger.Hunt();
+//	tiger.ShowInfo();
+//	tiger.ShowInfo();
+//
+//	Animal* pAnimal = new Tiger("호돌이");
+//	delete pAnimal;
+//	pAnimal = nullptr;
+//}
+//void Day_250916::AnimalLion()
+//{
+//	Lion lion = Lion("심바");
+//	lion.Move();
+//	lion.Runing();
+//	lion.ShowInfo();
+//}
+//void Day_250916::AnimalWolf()
+//{
+//	Wolf wolf = Wolf("이리");
+//	wolf.Move();
+//	wolf.Howling();
+//	wolf.ShowInfo();
+//}
+//void Day_250916::AnimalRabbit()
+//{
+//	Rabbit rabiit = Rabbit("토깽이");
+//	rabiit.Move();
+//	rabiit.Jump();
+//	rabiit.ShowInfo();
+//}
