@@ -185,6 +185,119 @@ enum Item
 };
 */
 
+
+
+// 각 아이템은 고유한 비트 자리를 대표하는 값을 가집니다.
+//enum Item
+//{
+//	KeyRed = 1, // 1 << 0 (001)
+//	KeyGreen = 2, // 1 << 1 (010)
+//	KeyBlue = 4  // 1 << 2 (100)
+//};
+//
+//void ItemManagement()
+//{
+//	int Inventory = 0; // 인벤토리를 나타내는 비트 필드, 0은 비어있음을 의미
+//
+//	while (true)
+//	{
+//		// 1. 현재 인벤토리 상태 출력
+//		std::cout << "----------- 현재 인벤토리 -----------" << std::endl;
+//		if (Inventory == 0)
+//		{
+//			std::cout << "비어있음" << std::endl;
+//		}
+//		else
+//		{
+//			// 비트wise AND(&) 연산으로 해당 아이템 비트가 켜져 있는지 확인
+//			if ((Inventory & KeyRed) == KeyRed)
+//				std::cout << "레드 키" << std::endl;
+//			if ((Inventory & KeyGreen) == KeyGreen)
+//				std::cout << "그린 키" << std::endl;
+//			if ((Inventory & KeyBlue) == KeyBlue)
+//				std::cout << "블루 키" << std::endl;
+//		}
+//		std::cout << "------------------------------------" << std::endl;
+//
+//		// 2. 메뉴 선택
+//		std::cout << "1: 아이템 추가, 2: 아이템 버리기, 3: 종료 >> ";
+//		int choice;
+//		std::cin >> choice;
+//
+//		if (choice == 3)
+//		{
+//			std::cout << "프로그램을 종료합니다." << std::endl;
+//			break;
+//		}
+//
+//		// 아이템 선택
+//		int itemInput;
+//		Item selectedItem;
+//
+//		if (choice == 1 || choice == 2)
+//		{
+//			std::cout << "아이템 선택 (1: 레드 키, 2: 그린 키, 3: 블루 키) >> ";
+//			std::cin >> itemInput;
+//
+//			switch (itemInput)
+//			{
+//			case 1:
+//				selectedItem = KeyRed;
+//				break;
+//			case 2:
+//				selectedItem = KeyGreen;
+//				break;
+//			case 3:
+//				selectedItem = KeyBlue;
+//				break;
+//			default:
+//				std::cout << "잘못된 아이템입니다." << std::endl;
+//				continue; // 루프의 처음으로 돌아감
+//			}
+//		}
+//
+//		// 3. 선택에 따른 로직 처리
+//		switch (choice)
+//		{
+//		case 1: // 아이템 추가
+//			// 이미 아이템이 있는지 확인
+//			if ((Inventory & selectedItem) == selectedItem)
+//			{
+//				std::cout << ">> 이미 있는 아이템입니다." << std::endl;
+//			}
+//			else
+//			{
+//				// 비트wise OR(|) 연산으로 해당 아이템 비트를 켬
+//				Inventory |= selectedItem;
+//				std::cout << ">> 아이템을 추가했습니다." << std::endl;
+//			}
+//			break;
+//
+//		case 2: // 아이템 버리기
+//			// 아이템이 있는지 확인
+//			if ((Inventory & selectedItem) == selectedItem)
+//			{
+//				// 비트wise AND(&)와 NOT(~) 연산으로 해당 아이템 비트를 끔
+//				Inventory &= (~selectedItem);
+//				std::cout << ">> 아이템을 버렸습니다." << std::endl;
+//			}
+//			else
+//			{
+//				std::cout << ">> 없는 아이템입니다." << std::endl;
+//			}
+//			break;
+//
+//		default:
+//			std::cout << "잘못된 메뉴입니다." << std::endl;
+//			break;
+//		}
+//
+//		std::cout << std::endl; // 가독성을 위한 줄바꿈
+//	}
+//
+//	
+//}
+
 void Practice0905_06()
 {
 	int MyInventory = 0;

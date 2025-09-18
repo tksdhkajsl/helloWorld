@@ -25,6 +25,9 @@
     <Filter Include="모양">
       <UniqueIdentifier>{a85c5894-bddd-4cc2-bc81-e110ee07ec55}</UniqueIdentifier>
     </Filter>
+    <Filter Include="자료구조">
+      <UniqueIdentifier>{82a6a7fa-9f8c-4968-be6a-76114d81c823}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="helloWorld.cpp">
@@ -107,6 +110,15 @@
     </ClCompile>
     <ClCompile Include="Shape.cpp">
       <Filter>모양</Filter>
+    </ClCompile>
+    <ClCompile Include="Day0918.cpp">
+      <Filter>자료구조</Filter>
+    </ClCompile>
+    <ClCompile Include="LinkedList.cpp">
+      <Filter>자료구조</Filter>
+    </ClCompile>
+    <ClCompile Include="DoubleLinkedList.cpp">
+      <Filter>자료구조</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -202,6 +214,15 @@
     </ClInclude>
     <ClInclude Include="ICanBattle.h">
       <Filter>Animal</Filter>
+    </ClInclude>
+    <ClInclude Include="Day0918.h">
+      <Filter>자료구조</Filter>
+    </ClInclude>
+    <ClInclude Include="LinkedList.h">
+      <Filter>자료구조</Filter>
+    </ClInclude>
+    <ClInclude Include="DoubleLinkedList.h">
+      <Filter>자료구조</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -128,12 +128,15 @@
     <ClCompile Include="BlackJack.cpp" />
     <ClCompile Include="Car.cpp" />
     <ClCompile Include="Day0917.cpp" />
+    <ClCompile Include="Day0918.cpp" />
     <ClCompile Include="Day_250916.cpp" />
     <ClCompile Include="Dog.cpp" />
+    <ClCompile Include="DoubleLinkedList.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="Hawk.cpp" />
     <ClCompile Include="header.cpp" />
     <ClCompile Include="helloWorld.cpp" />
+    <ClCompile Include="LinkedList.cpp" />
     <ClCompile Include="MazeGame.cpp" />
     <ClCompile Include="Monster.cpp" />
     <ClCompile Include="Monsters.cpp" />
@@ -157,8 +160,10 @@
     <ClInclude Include="BlackJack.h" />
     <ClInclude Include="Car.h" />
     <ClInclude Include="Day0917.h" />
+    <ClInclude Include="Day0918.h" />
     <ClInclude Include="Day_250916.h" />
     <ClInclude Include="Dog.h" />
+    <ClInclude Include="DoubleLinkedList.h" />
     <ClInclude Include="EnemyData.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="Hawk.h" />
@@ -166,6 +171,7 @@
     <ClInclude Include="ICanBattle.h" />
     <ClInclude Include="IFlyable.h" />
     <ClInclude Include="ISwim.h" />
+    <ClInclude Include="LinkedList.h" />
     <ClInclude Include="MazeEscape.h" />
     <ClInclude Include="Monster.h" />
     <ClInclude Include="Monsters.h" />
