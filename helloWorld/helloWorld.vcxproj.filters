@@ -120,6 +120,18 @@
     <ClCompile Include="DoubleLinkedList.cpp">
       <Filter>자료구조</Filter>
     </ClCompile>
+    <ClCompile Include="FixedStack.cpp">
+      <Filter>자료구조</Filter>
+    </ClCompile>
+    <ClCompile Include="Day0919.cpp">
+      <Filter>자료구조</Filter>
+    </ClCompile>
+    <ClCompile Include="CircularQueue.cpp">
+      <Filter>자료구조</Filter>
+    </ClCompile>
+    <ClCompile Include="CircularQueue2.cpp">
+      <Filter>자료구조</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header.h">
@@ -222,6 +234,18 @@
       <Filter>자료구조</Filter>
     </ClInclude>
     <ClInclude Include="DoubleLinkedList.h">
+      <Filter>자료구조</Filter>
+    </ClInclude>
+    <ClInclude Include="FixedStack.h">
+      <Filter>자료구조</Filter>
+    </ClInclude>
+    <ClInclude Include="Day0919.h">
+      <Filter>자료구조</Filter>
+    </ClInclude>
+    <ClInclude Include="CircularQueue.h">
+      <Filter>자료구조</Filter>
+    </ClInclude>
+    <ClInclude Include="CircularQueue2.h">
       <Filter>자료구조</Filter>
     </ClInclude>
   </ItemGroup>
