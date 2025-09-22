@@ -15,3 +15,7 @@ struct PlayerData
 	PlayerData() : CurrentPosition(0, 0), AttackPower(20.0f), Health(100.0f), Gold(0) {}
 
 };
+
+
+
+
