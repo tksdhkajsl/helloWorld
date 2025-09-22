@@ -143,6 +143,22 @@ void BinarySearch::PreOrderTraversal(TreeNode* InNode) const
 
 void BinarySearch::InOrderTraversal(TreeNode* InNode) const
 {
+<<<<<<< HEAD
+=======
+    if (InNode != nullptr)
+    {
+        for (int i = 0;InNode->Left == nullptr; i++)
+        {
+            
+            for (int j = 0; InNode->Right == nullptr; j++)
+            {
+                InNode->Right;
+            }
+            InNode->Left;
+        }
+    }
+    InNode->Key;
+>>>>>>> 250922 ?˜ì—…
 }
 
 void BinarySearch::PoseOrderTraversal(TreeNode* InNode) const
